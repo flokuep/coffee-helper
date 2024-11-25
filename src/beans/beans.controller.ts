@@ -1,13 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  NotFoundException,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { BeansService } from './beans.service';
 import { CreateBeanDto } from './dto/create-bean.dto';
 import { UpdateBeanDto } from './dto/update-bean.dto';
@@ -28,13 +19,7 @@ export class BeansController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    const bean = this.beansService.findOne(+id);
-
-    if (!bean) {
-      throw new NotFoundException('Bean not found');
-    }
-
-    return bean;
+    return this.beansService.findOne(+id);
   }
 
   @Patch(':id')
