@@ -1,26 +1,64 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBeanDto } from './dto/create-bean.dto';
 import { UpdateBeanDto } from './dto/update-bean.dto';
+import { DrizzleService } from 'src/database/drizzle.service';
+import { databaseSchema } from 'src/database/database-schema';
+import { eq } from 'drizzle-orm';
 
 @Injectable()
 export class BeansService {
-  create(createBeanDto: CreateBeanDto) {
-    return 'This action adds a new bean';
+  constructor(private readonly drizzleService: DrizzleService) {}
+
+  async create(createBeanDto: CreateBeanDto) {
+    const createdBean = await this.drizzleService.db
+      .insert(databaseSchema.beans)
+      .values(createBeanDto)
+      .returning();
+
+    return createdBean.pop();
   }
 
   findAll() {
-    return `This action returns all beans`;
+    return this.drizzleService.db.select().from(databaseSchema.beans);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} bean`;
+  async findOne(id: number) {
+    const beans = await this.drizzleService.db
+      .select()
+      .from(databaseSchema.beans)
+      .where(eq(databaseSchema.beans.id, id));
+
+    const bean = beans.pop();
+
+    if (!bean) {
+      throw new NotFoundException();
+    }
+
+    return bean;
   }
 
-  update(id: number, updateBeanDto: UpdateBeanDto) {
-    return `This action updates a #${id} bean`;
+  async update(id: number, updateBeanDto: UpdateBeanDto) {
+    const updatedBean = await this.drizzleService.db
+      .update(databaseSchema.beans)
+      .set(updateBeanDto)
+      .where(eq(databaseSchema.beans.id, id))
+      .returning();
+
+    if (updatedBean.length === 0) {
+      throw new NotFoundException();
+    }
+
+    return updatedBean.pop();
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} bean`;
+  async remove(id: number) {
+    const deletedBean = await this.drizzleService.db
+      .delete(databaseSchema.beans)
+      .where(eq(databaseSchema.beans.id, id))
+      .returning();
+
+    if (deletedBean.length === 0) {
+      throw new NotFoundException();
+    }
   }
 }
