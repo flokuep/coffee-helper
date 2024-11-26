@@ -4,12 +4,16 @@ import { UpdateExtractionDto } from './dto/update-extraction.dto';
 import { databaseSchema } from 'src/database/database-schema';
 import { DrizzleService } from 'src/database/drizzle.service';
 import { eq } from 'drizzle-orm';
+import { Extraction } from './entities/extraction.entity';
 
 @Injectable()
 export class ExtractionService {
   constructor(private readonly drizzleService: DrizzleService) {}
 
-  async create(beanId: number, createExtractionDto: CreateExtractionDto) {
+  async create(
+    beanId: number,
+    createExtractionDto: CreateExtractionDto,
+  ): Promise<Extraction> {
     const createdExtraction = await this.drizzleService.db
       .insert(databaseSchema.extractions)
       .values({ beanId, ...createExtractionDto })
@@ -18,14 +22,14 @@ export class ExtractionService {
     return createdExtraction.pop();
   }
 
-  findAllForBean(beanId: number) {
+  findAllForBean(beanId: number): Promise<Extraction[]> {
     return this.drizzleService.db
       .select()
       .from(databaseSchema.extractions)
       .where(eq(databaseSchema.extractions.beanId, beanId));
   }
 
-  async findOne(id: number) {
+  async findOne(id: number): Promise<Extraction> {
     const extractions = await this.drizzleService.db
       .select()
       .from(databaseSchema.extractions)
@@ -40,7 +44,10 @@ export class ExtractionService {
     return extraction;
   }
 
-  async update(id: number, updateExtractionDto: UpdateExtractionDto) {
+  async update(
+    id: number,
+    updateExtractionDto: UpdateExtractionDto,
+  ): Promise<Extraction> {
     const updatedExtraction = await this.drizzleService.db
       .update(databaseSchema.extractions)
       .set(updateExtractionDto)

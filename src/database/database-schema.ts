@@ -1,4 +1,3 @@
-import { sql } from 'drizzle-orm';
 import {
   serial,
   text,
@@ -18,7 +17,8 @@ export const beans = pgTable('beans', {
   updatedAt: timestamp()
     .notNull()
     .defaultNow()
-    .$onUpdate(() => sql`now()`),
+    //TODO Date is in wrong timezone
+    .$onUpdate(() => new Date()),
 });
 
 export const extractionProfile = pgEnum('extraction_profile', [

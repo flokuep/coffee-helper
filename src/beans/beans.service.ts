@@ -4,12 +4,13 @@ import { UpdateBeanDto } from './dto/update-bean.dto';
 import { DrizzleService } from 'src/database/drizzle.service';
 import { databaseSchema } from 'src/database/database-schema';
 import { eq } from 'drizzle-orm';
+import { Bean } from './entities/bean.entity';
 
 @Injectable()
 export class BeansService {
   constructor(private readonly drizzleService: DrizzleService) {}
 
-  async create(createBeanDto: CreateBeanDto) {
+  async create(createBeanDto: CreateBeanDto): Promise<Bean> {
     const createdBean = await this.drizzleService.db
       .insert(databaseSchema.beans)
       .values(createBeanDto)
@@ -18,11 +19,11 @@ export class BeansService {
     return createdBean.pop();
   }
 
-  findAll() {
+  findAll(): Promise<Bean[]> {
     return this.drizzleService.db.select().from(databaseSchema.beans);
   }
 
-  async findOne(id: number) {
+  async findOne(id: number): Promise<Bean> {
     const beans = await this.drizzleService.db
       .select()
       .from(databaseSchema.beans)
@@ -37,7 +38,7 @@ export class BeansService {
     return bean;
   }
 
-  async update(id: number, updateBeanDto: UpdateBeanDto) {
+  async update(id: number, updateBeanDto: UpdateBeanDto): Promise<Bean> {
     const updatedBean = await this.drizzleService.db
       .update(databaseSchema.beans)
       .set(updateBeanDto)

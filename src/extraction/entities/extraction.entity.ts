@@ -8,5 +8,4 @@ export class Extraction {
   nextExtractionHint?: string;
   barista?: string;
   createdAt: Date;
-  updatedAt: Date;
 }
