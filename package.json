@@ -31,6 +31,7 @@
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.28.1",
     "drizzle-orm": "^0.36.4",
+    "helmet": "^8.0.0",
     "joi": "^17.13.3",
     "pg": "^8.13.1",
     "reflect-metadata": "^0.2.0",
