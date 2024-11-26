@@ -1,3 +1,4 @@
+import { sql } from 'drizzle-orm';
 import { serial, text, pgTable, timestamp } from 'drizzle-orm/pg-core';
 
 export const beans = pgTable('beans', {
@@ -10,7 +11,7 @@ export const beans = pgTable('beans', {
   updatedAt: timestamp('updated_at')
     .notNull()
     .defaultNow()
-    .$onUpdate(() => new Date()),
+    .$onUpdate(() => sql`now()`),
 });
 
 export const databaseSchema = {
