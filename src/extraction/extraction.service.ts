@@ -23,19 +23,15 @@ export class ExtractionService {
   }
 
   findAllForBean(beanId: number): Promise<Extraction[]> {
-    return this.drizzleService.db
-      .select()
-      .from(databaseSchema.extractions)
-      .where(eq(databaseSchema.extractions.beanId, beanId));
+    return this.drizzleService.db.query.extractions.findMany({
+      where: eq(databaseSchema.extractions.beanId, beanId),
+    });
   }
 
   async findOne(id: number): Promise<Extraction> {
-    const extractions = await this.drizzleService.db
-      .select()
-      .from(databaseSchema.extractions)
-      .where(eq(databaseSchema.extractions.id, id));
-
-    const extraction = extractions.pop();
+    const extraction = this.drizzleService.db.query.extractions.findFirst({
+      where: eq(databaseSchema.extractions.id, id),
+    });
 
     if (!extraction) {
       throw new NotFoundException();

@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm';
 import {
   serial,
   text,
@@ -20,6 +21,10 @@ export const beans = pgTable('beans', {
     //TODO Date is in wrong timezone
     .$onUpdate(() => new Date()),
 });
+
+export const beansRelations = relations(beans, ({ many }) => ({
+  extractions: many(extractions),
+}));
 
 export const extractionProfile = pgEnum('extraction_profile', [
   'very sour',
@@ -51,6 +56,7 @@ export const extractions = pgTable('extractions', {
 
 export const databaseSchema = {
   beans,
+  beansRelations,
   extractions,
   extractionProfile,
   extractionFlow,

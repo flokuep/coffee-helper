@@ -5,6 +5,7 @@ import { DrizzleService } from 'src/database/drizzle.service';
 import { databaseSchema } from 'src/database/database-schema';
 import { eq } from 'drizzle-orm';
 import { Bean } from './entities/bean.entity';
+import { UpdateBeanResponseDto } from './dto/update-bean-response.dto';
 
 @Injectable()
 export class BeansService {
@@ -16,20 +17,28 @@ export class BeansService {
       .values(createBeanDto)
       .returning();
 
-    return createdBean.pop();
+    return { ...createdBean.pop(), extractions: [] };
   }
 
   findAll(): Promise<Bean[]> {
-    return this.drizzleService.db.select().from(databaseSchema.beans);
+    return this.drizzleService.db.query.beans.findMany({
+      with: {
+        extractions: {
+          orderBy: (extractions, { desc }) => [desc(extractions.createdAt)],
+        },
+      },
+    });
   }
 
   async findOne(id: number): Promise<Bean> {
-    const beans = await this.drizzleService.db
-      .select()
-      .from(databaseSchema.beans)
-      .where(eq(databaseSchema.beans.id, id));
-
-    const bean = beans.pop();
+    const bean = await this.drizzleService.db.query.beans.findFirst({
+      where: eq(databaseSchema.beans.id, id),
+      with: {
+        extractions: {
+          orderBy: (extractions, { desc }) => [desc(extractions.createdAt)],
+        },
+      },
+    });
 
     if (!bean) {
       throw new NotFoundException();
@@ -38,7 +47,10 @@ export class BeansService {
     return bean;
   }
 
-  async update(id: number, updateBeanDto: UpdateBeanDto): Promise<Bean> {
+  async update(
+    id: number,
+    updateBeanDto: UpdateBeanDto,
+  ): Promise<UpdateBeanResponseDto> {
     const updatedBean = await this.drizzleService.db
       .update(databaseSchema.beans)
       .set(updateBeanDto)
