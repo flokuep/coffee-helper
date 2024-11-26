@@ -8,6 +8,9 @@ import { databaseSchema } from './database-schema';
 export class DrizzleService {
   public db: NodePgDatabase<typeof databaseSchema>;
   constructor(@Inject(CONNECTION_POOL) private readonly pool: Pool) {
-    this.db = drizzle(this.pool, { schema: databaseSchema });
+    this.db = drizzle(this.pool, {
+      casing: 'snake_case',
+      schema: databaseSchema,
+    });
   }
 }

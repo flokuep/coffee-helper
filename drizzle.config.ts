@@ -16,4 +16,5 @@ export default defineConfig({
     database: configService.get('POSTGRES_DB'),
     ssl: configService.get('POSTGRES_SSL') === 'true',
   },
+  casing: 'snake_case',
 });

@@ -15,6 +15,13 @@
       "when": 1732524571471,
       "tag": "0001_update-beans-table",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732614441045,
+      "tag": "0002_create-extractions-table",
+      "breakpoints": true
     }
   ]
 }

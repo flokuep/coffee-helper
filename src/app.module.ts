@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BeansModule } from './beans/beans.module';
 import { DatabaseModule } from './database/database.module';
+import { ExtractionModule } from './extraction/extraction.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { DatabaseModule } from './database/database.module';
         ssl: configService.get('POSTGRES_SSL'),
       }),
     }),
+    ExtractionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
