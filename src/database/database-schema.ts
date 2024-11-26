@@ -51,4 +51,7 @@ export const extractions = pgTable('extractions', {
 
 export const databaseSchema = {
   beans,
+  extractions,
+  extractionProfile,
+  extractionFlow,
 };
