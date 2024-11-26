@@ -54,10 +54,18 @@ export const extractions = pgTable('extractions', {
   createdAt: timestamp().notNull().defaultNow(),
 });
 
+export const extractionsRelations = relations(extractions, ({ one }) => ({
+  bean: one(beans, {
+    fields: [extractions.beanId],
+    references: [beans.id],
+  }),
+}));
+
 export const databaseSchema = {
   beans,
   beansRelations,
   extractions,
   extractionProfile,
   extractionFlow,
+  extractionsRelations,
 };
