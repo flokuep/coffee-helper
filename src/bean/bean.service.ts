@@ -8,7 +8,7 @@ import { Bean } from './entities/bean.entity';
 import { UpdateBeanResponseDto } from './dto/update-bean-response.dto';
 
 @Injectable()
-export class BeansService {
+export class BeanService {
   constructor(private readonly drizzleService: DrizzleService) {}
 
   async create(createBeanDto: CreateBeanDto): Promise<Bean> {

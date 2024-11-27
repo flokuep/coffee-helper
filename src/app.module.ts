@@ -3,13 +3,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BeansModule } from './beans/beans.module';
+import { BeanModule } from './bean/bean.module';
 import { DatabaseModule } from './database/database.module';
 import { ExtractionModule } from './extraction/extraction.module';
 
 @Module({
   imports: [
-    BeansModule,
+    BeanModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),
