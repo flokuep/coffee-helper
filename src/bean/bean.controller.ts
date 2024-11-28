@@ -12,7 +12,9 @@ import { CreateBeanDto } from './dto/create-bean.dto';
 import { UpdateBeanDto } from './dto/update-bean.dto';
 import { Bean } from './entities/bean.entity';
 import { UpdateBeanResponseDto } from './dto/update-bean-response.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth('defaultBearerAuth')
 @Controller('bean')
 export class BeanController {
   constructor(private readonly beansService: BeanService) {}

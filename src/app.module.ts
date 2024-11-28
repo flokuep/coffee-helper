@@ -6,10 +6,11 @@ import { AppService } from './app.service';
 import { BeanModule } from './bean/bean.module';
 import { DatabaseModule } from './database/database.module';
 import { ExtractionModule } from './extraction/extraction.module';
+import { AuthModule } from './auth/auth.module';
+import { GroupModule } from './group/group.module';
 
 @Module({
   imports: [
-    BeanModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),
@@ -33,6 +34,9 @@ import { ExtractionModule } from './extraction/extraction.module';
       }),
     }),
     ExtractionModule,
+    BeanModule,
+    GroupModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

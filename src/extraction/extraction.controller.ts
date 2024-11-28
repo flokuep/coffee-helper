@@ -11,7 +11,9 @@ import { ExtractionService } from './extraction.service';
 import { CreateExtractionDto } from './dto/create-extraction.dto';
 import { UpdateExtractionDto } from './dto/update-extraction.dto';
 import { Extraction } from './entities/extraction.entity';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth('defaultBearerAuth')
 @Controller('extraction')
 export class ExtractionController {
   constructor(private readonly extractionService: ExtractionService) {}

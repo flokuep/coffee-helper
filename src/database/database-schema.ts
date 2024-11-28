@@ -14,6 +14,7 @@ export const beans = pgTable('beans', {
   manufacturer: text(),
   profile: text(),
   notes: text(),
+  groupId: serial().references(() => groups.id),
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp()
     .notNull()
@@ -22,8 +23,12 @@ export const beans = pgTable('beans', {
     .$onUpdate(() => new Date()),
 });
 
-export const beansRelations = relations(beans, ({ many }) => ({
+export const beansRelations = relations(beans, ({ many, one }) => ({
   extractions: many(extractions),
+  group: one(groups, {
+    fields: [beans.groupId],
+    references: [groups.id],
+  }),
 }));
 
 export const extractionProfile = pgEnum('extraction_profile', [
@@ -61,6 +66,22 @@ export const extractionsRelations = relations(extractions, ({ one }) => ({
   }),
 }));
 
+export const groups = pgTable('groups', {
+  id: serial().primaryKey(),
+  name: text(),
+  token: text(),
+  createdAt: timestamp().notNull().defaultNow(),
+  updatedAt: timestamp()
+    .notNull()
+    .defaultNow()
+    //TODO Date is in wrong timezone
+    .$onUpdate(() => new Date()),
+});
+
+export const groupsRelations = relations(groups, ({ many }) => ({
+  beans: many(beans),
+}));
+
 export const databaseSchema = {
   beans,
   beansRelations,
@@ -68,4 +89,6 @@ export const databaseSchema = {
   extractionProfile,
   extractionFlow,
   extractionsRelations,
+  groups,
+  groupsRelations,
 };

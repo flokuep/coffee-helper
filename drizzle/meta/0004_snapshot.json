@@ -1,0 +1,44 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {},
+  "enums": {
+    "public.extraction_flow": {
+      "name": "extraction_flow",
+      "values": [
+        "very slow",
+        "slow",
+        "perfect",
+        "fast",
+        "very fast"
+      ],
+      "schema": "public"
+    },
+    "public.extraction_profile": {
+      "name": "extraction_profile",
+      "values": [
+        "very sour",
+        "sour",
+        "perfect",
+        "bitter",
+        "very bitter"
+      ],
+      "schema": "public"
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {}
+  }
+}
