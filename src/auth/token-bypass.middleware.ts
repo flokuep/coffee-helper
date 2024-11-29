@@ -1,10 +1,27 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { Request, Response, NextFunction } from 'express';
+import { AuthService } from './auth.service';
 
-export function tokenBypass(req: Request, res: Response, next: NextFunction) {
-  // if ENV.token
-  // --> wenn in cache kein JWT fuer ENV.token: auth.service.validateGroup aufrufen und JWT ablegen
-  // JWT in header schreiben
-  req.headers.authorization =
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkNhZsOpIE9zdGVydGFnIiwidG9rZW4iOiJzdHJpbmciLCJjcmVhdGVkQXQiOiIyMDI0LTExLTI3VDEwOjAyOjI5LjkzOFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTExLTI3VDEwOjAyOjI5LjkzOFoiLCJpYXQiOjE3MzI4MjA5MTksImV4cCI6MTczMjgyMDk3OX0.PJ8djOB7PgxQqgShR0Zuc4uDRUBedDqkcMO_BNDGfSo';
-  next();
+@Injectable()
+export class TokenBypassMiddleware implements NestMiddleware {
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly authService: AuthService,
+  ) {}
+
+  async use(req: Request, res: Response, next: NextFunction) {
+    const token = this.configService.get('GROUP_TOKEN');
+    if (token) {
+      const group = await this.authService.validateGroup(token);
+      if (group) {
+        const jwt = await this.authService.login(group);
+        req.headers.authorization = `Bearer ${jwt.accessToken}`;
+      } else {
+        console.error(`Cannot find group by configured GROUP_TOKEN "${token}"`);
+      }
+    }
+
+    next();
+  }
 }

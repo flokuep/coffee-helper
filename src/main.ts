@@ -3,13 +3,11 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { ValidationPipe } from '@nestjs/common';
-import { tokenBypass } from './auth/token-bypass.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.use(helmet());
-  app.use(tokenBypass);
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
