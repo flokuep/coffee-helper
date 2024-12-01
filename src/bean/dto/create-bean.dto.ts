@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateBeanDto {
   @IsNotEmpty()
@@ -10,8 +10,10 @@ export class CreateBeanDto {
   manufacturer: string;
 
   @IsString()
+  @IsOptional()
   profile?: string;
 
   @IsString()
+  @IsOptional()
   notes?: string;
 }

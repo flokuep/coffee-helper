@@ -13,6 +13,8 @@ import { UpdateBeanDto } from './dto/update-bean.dto';
 import { Bean } from './entities/bean.entity';
 import { UpdateBeanResponseDto } from './dto/update-bean-response.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
+import { CurrentGroup } from 'src/auth/group.decorator';
+import { AuthenticatedGroupDto } from 'src/group/dto/authenticated-group.dto';
 
 @ApiBearerAuth('defaultBearerAuth')
 @Controller('bean')
@@ -20,30 +22,40 @@ export class BeanController {
   constructor(private readonly beansService: BeanService) {}
 
   @Post()
-  create(@Body() createBeanDto: CreateBeanDto): Promise<Bean> {
-    return this.beansService.create(createBeanDto);
+  create(
+    @CurrentGroup() group: AuthenticatedGroupDto,
+    @Body() createBeanDto: CreateBeanDto,
+  ): Promise<Bean> {
+    return this.beansService.create(group.userId, createBeanDto);
   }
 
   @Get()
-  findAll(): Promise<Bean[]> {
-    return this.beansService.findAll();
+  findAll(@CurrentGroup() group: AuthenticatedGroupDto): Promise<Bean[]> {
+    return this.beansService.findAll(group.userId);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<Bean> {
-    return this.beansService.findOne(+id);
+  findOne(
+    @CurrentGroup() group: AuthenticatedGroupDto,
+    @Param('id') id: string,
+  ): Promise<Bean> {
+    return this.beansService.findOne(group.userId, +id);
   }
 
   @Patch(':id')
   update(
+    @CurrentGroup() group: AuthenticatedGroupDto,
     @Param('id') id: string,
     @Body() updateBeanDto: UpdateBeanDto,
   ): Promise<UpdateBeanResponseDto> {
-    return this.beansService.update(+id, updateBeanDto);
+    return this.beansService.update(group.userId, +id, updateBeanDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.beansService.remove(+id);
+  remove(
+    @CurrentGroup() group: AuthenticatedGroupDto,
+    @Param('id') id: string,
+  ) {
+    return this.beansService.remove(group.userId, +id);
   }
 }
