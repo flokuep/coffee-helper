@@ -9,7 +9,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"generate-openapi-sdk": "oazapfts --optimistic --argumentStyle=object --useEnumType http://localhost:3000/api-json ./src/generated/fetch-client.ts"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
@@ -32,7 +33,9 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@oazapfts/runtime": "^1.0.3",
 		"@tailwindcss/forms": "^0.5.9",
-		"@tailwindcss/typography": "^0.5.15"
+		"@tailwindcss/typography": "^0.5.15",
+		"oazapfts": "^6.1.0"
 	}
 }
