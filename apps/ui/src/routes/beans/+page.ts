@@ -1,8 +1,12 @@
 import { beanControllerFindAll } from '../../generated/fetch-client.js';
+import type { PageLoad } from './$types';
 
-export async function load() {
+export const load = (async () => {
 	const beans = await beanControllerFindAll();
 	return {
-		beans
+		beans,
+		meta: {
+			title: 'Kaffeebohnen'
+		}
 	};
-}
+}) satisfies PageLoad;
