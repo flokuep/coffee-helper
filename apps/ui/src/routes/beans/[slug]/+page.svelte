@@ -1,7 +1,7 @@
 <script lang="ts">
+	import BeanDetails from '$lib/components/beans-page/bean-details.svelte';
+
 	let { data } = $props();
 </script>
 
-<h1>Bohnendetails</h1>
-<p>hier werden Infos zu Bohnen und Bezügen angezeigt.</p>
-<p>{JSON.stringify(data)}</p>
+<BeanDetails bean={data.bean} />
