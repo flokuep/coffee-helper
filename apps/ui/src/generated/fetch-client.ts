@@ -161,7 +161,7 @@ export function beanControllerFindAll(opts?: Oazapfts.RequestOpts) {
     }));
 }
 export function beanControllerFindOne({ id }: {
-    id: string;
+    id: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
         status: 200;
@@ -171,7 +171,7 @@ export function beanControllerFindOne({ id }: {
     }));
 }
 export function beanControllerUpdate({ id, updateBeanDto }: {
-    id: string;
+    id: number;
     updateBeanDto: UpdateBeanDto;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
@@ -184,7 +184,7 @@ export function beanControllerUpdate({ id, updateBeanDto }: {
     })));
 }
 export function beanControllerRemove({ id }: {
-    id: string;
+    id: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchText(`/api/bean/${encodeURIComponent(id)}`, {
         ...opts,

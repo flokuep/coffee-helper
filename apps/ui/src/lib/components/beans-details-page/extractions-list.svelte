@@ -6,7 +6,7 @@
 		extractions: Extraction[];
 	}
 
-	let { extractions = $bindable([]) }: Props = $props();
+	let { extractions }: Props = $props();
 </script>
 
 <ul>

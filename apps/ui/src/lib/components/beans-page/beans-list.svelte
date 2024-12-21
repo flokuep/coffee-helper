@@ -6,7 +6,7 @@
 		beans: Bean[];
 	}
 
-	let { beans = $bindable([]) }: Props = $props();
+	let { beans }: Props = $props();
 </script>
 
 <ul>

@@ -5,7 +5,7 @@
 		extraction: Extraction;
 	}
 
-	let { extraction = $bindable() }: Props = $props();
+	let { extraction }: Props = $props();
 </script>
 
 <li>

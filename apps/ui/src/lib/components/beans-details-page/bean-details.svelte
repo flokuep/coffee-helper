@@ -7,7 +7,7 @@
 		bean: Bean;
 	}
 
-	let { bean = $bindable() }: Props = $props();
+	let { bean }: Props = $props();
 </script>
 
 <div>

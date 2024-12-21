@@ -37,7 +37,7 @@ export class BeanController {
   @Get(':id')
   findOne(
     @CurrentGroup() group: AuthenticatedGroupDto,
-    @Param('id') id: string,
+    @Param('id') id: number,
   ): Promise<Bean> {
     return this.beansService.findOne(group.userId, +id);
   }
@@ -45,7 +45,7 @@ export class BeanController {
   @Patch(':id')
   update(
     @CurrentGroup() group: AuthenticatedGroupDto,
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() updateBeanDto: UpdateBeanDto,
   ): Promise<UpdateBeanResponseDto> {
     return this.beansService.update(group.userId, +id, updateBeanDto);
@@ -54,7 +54,7 @@ export class BeanController {
   @Delete(':id')
   remove(
     @CurrentGroup() group: AuthenticatedGroupDto,
-    @Param('id') id: string,
+    @Param('id') id: number,
   ) {
     return this.beansService.remove(group.userId, +id);
   }

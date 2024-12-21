@@ -5,11 +5,11 @@
 		bean: Bean;
 	}
 
-	let { bean = $bindable() }: Props = $props();
+	let { bean }: Props = $props();
 </script>
 
 <li>
-	<a href="/beans/{bean.id}">
+	<a href="/beans/details/{bean.id}">
 		{bean.name} - {bean.manufacturer}<br />
 		{bean.profile}
 	</a>
