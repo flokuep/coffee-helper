@@ -6,6 +6,7 @@
 	} from '../../../generated/fetch-client';
 	import Button from '../generic/button.svelte';
 	import InputTextual from '../generic/input-textual.svelte';
+	import { t } from '$lib/i18n';
 
 	interface Props {
 		bean?: Bean;
@@ -31,9 +32,9 @@
 </script>
 
 <form onsubmit={onSave}>
-	<InputTextual label="Name" bind:value={name}></InputTextual>
-	<InputTextual label="Rösterei" bind:value={manufacturer}></InputTextual>
-	<InputTextual label="Profil" bind:value={profile}></InputTextual>
-	<InputTextual label="Notizen" bind:value={notes}></InputTextual>
+	<InputTextual label={$t('beans.bean')} bind:value={name}></InputTextual>
+	<InputTextual label={$t('beans.manufacturer')} bind:value={manufacturer}></InputTextual>
+	<InputTextual label={$t('beans.profile')} bind:value={profile}></InputTextual>
+	<InputTextual label={$t('beans.notes')} bind:value={notes}></InputTextual>
 	<Button type="submit" label="Speichern"></Button>
 </form>
