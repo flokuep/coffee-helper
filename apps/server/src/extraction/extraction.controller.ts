@@ -26,7 +26,7 @@ export class ExtractionController {
     return this.extractionService.create(beanId, createExtractionDto);
   }
 
-  @Get(':beanId')
+  @Get('for-bean/:beanId')
   findAllForBean(@Param('beanId') beanId: number): Promise<Extraction[]> {
     return this.extractionService.findAllForBean(beanId);
   }

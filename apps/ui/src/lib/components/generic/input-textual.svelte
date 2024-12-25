@@ -1,11 +1,11 @@
 <script lang="ts">
 	interface Props {
 		label: string;
-		value: string;
+		value: string | undefined;
 		type?: string;
 	}
 
-	let { label, type = 'text', value = $bindable('') }: Props = $props();
+	let { label, type = 'text', value = $bindable(undefined) }: Props = $props();
 	let id = $derived(label.toLowerCase().replaceAll(' ', '-'));
 </script>
 
