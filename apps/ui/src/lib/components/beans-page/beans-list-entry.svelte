@@ -9,7 +9,7 @@
 </script>
 
 <li>
-	<a href="/beans/details/{bean.id}">
+	<a href="/beans/{bean.id}">
 		{bean.name} - {bean.manufacturer}<br />
 		{bean.profile}
 	</a>

@@ -18,4 +18,3 @@
 	<p>Übersicht über alle Bohnen.</p>
 	<BeansList beans={data.beans} />
 </AppShell>
-<h1>Alle Bohnen</h1>
