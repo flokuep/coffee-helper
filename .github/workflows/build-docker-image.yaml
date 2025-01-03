@@ -22,10 +22,6 @@ jobs:
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
-    - name: Run npm install
-      run: npm install
-    - name: Build frontend
-      run: npm run build
     - name: Log in to the Container registry
       uses: docker/login-action@v3
       with:
