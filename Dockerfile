@@ -17,6 +17,7 @@ COPY apps/ui .
 RUN npm run build
 
 # prepare image
+FROM node:lts
 COPY --from=backend /usr/src/app/node_modules ./node_modules
 COPY --from=backend /usr/src/app/dist ./dist
 COPY --from=backend /usr/src/app/bin ./bin
