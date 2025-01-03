@@ -3,7 +3,7 @@ FROM node:lts AS backend
 WORKDIR /usr/src/app
 
 COPY apps/server/package.json apps/server/package-lock.json ./
-RUN npm install
+RUN npm ci
 COPY apps/server .
 RUN npm run build && npm prune --omit=dev --omit=optional
 
@@ -12,7 +12,7 @@ FROM node:lts AS frontend
 WORKDIR /usr/src/app
 
 COPY apps/ui/package.json apps/ui/package-lock.json apps/ui/svelte.config.js ./
-RUN npm install
+RUN npm ci
 COPY apps/ui .
 RUN npm run build
 
