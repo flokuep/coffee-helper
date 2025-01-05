@@ -7,7 +7,15 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.use(helmet());
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          'script-src': ["'self'", "'unsafe-inline'"],
+        },
+      },
+    }),
+  );
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
