@@ -1,0 +1,21 @@
+services:
+  coffee-helper:
+    image: ghcr.io/flokuep/coffee-helper:main
+    depends_on:
+      - postgres
+    networks:
+      - default
+
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: 'some-random-password'
+      POSTGRES_USER: 'coffee-helper'
+      POSTGRES_DB: 'coffee-helper'
+    volumes:
+      - /opt/docker/coffee-helper/db:/var/lib/postgresql/data
+    networks:
+      - default
+
+networks:
+  default:
