@@ -23,5 +23,4 @@ COPY apps/server/drizzle/* .
 COPY docker/* .
 RUN npm install
 
-CMD [" cd /usr/src/app/drizzle && npm run migrate && \
-       exec node /usr/src/app/dist/src/main \"$@\""]
+CMD ["./start.sh"]
