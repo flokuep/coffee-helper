@@ -1,0 +1,14 @@
+{
+  "name": "coffee-helper-db-migration",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "migrate": "drizzle-kit migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "drizzle-kit": "^0.30.1"
+  }
+}

@@ -1,14 +1,27 @@
-FROM node:lts
+# build application
+FROM node:lts AS build
 WORKDIR /usr/src/app
 
+# copy sources of ui and server
 COPY package.json package-lock.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps ./apps
 RUN npm i -g pnpm && \
  pnpm install && \
- pnpm build && \
- cp -r apps/ui/build apps/server/dist && \
- cp -r apps/server/dist . 
-# rm -r apps/ && \
-# rm -r node_modules
-CMD [" pnpm run --filter=server drizzle migrate && \
+ pnpm build
+
+ # create production image
+FROM node:lts AS production
+WORKDIR /usr/src/app
+
+# copy artifacts of ui and serer
+COPY --from=build /usr/src/app/apps/server/dist ./
+COPY --from=build /usr/src/app/apps/ui/build ./dist/
+
+# copy and install helper for drizzle
+WORKDIR /usr/src/app/drizzle
+COPY apps/server/drizzle/* .
+COPY docker/* .
+RUN npm install
+
+CMD [" cd /usr/src/app/drizzle && npm run migrate && \
        exec node /usr/src/app/dist/src/main \"$@\""]
