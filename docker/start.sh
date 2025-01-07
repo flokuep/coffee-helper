@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-echo "Running migrations..."
-cd /usr/src/app/drizzle
-exec npm run migrate
-echo "Start application..."
+console.log("Running migrations...")
+exec npm --path /usr/src/app/drizzle run migrate
+console.log("Start application...")
 exec node /usr/src/app/dist/src/main "$@"
