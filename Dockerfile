@@ -19,8 +19,8 @@ COPY --from=build /usr/src/app/apps/ui/build ./dist/
 
 # copy and install helper for drizzle
 WORKDIR /usr/src/app/drizzle
-COPY apps/server/drizzle/* .
-COPY docker/* .
+COPY apps/server/drizzle/ .
+COPY docker/ .
 RUN npm install && chmod +x start.sh
 
 CMD ["sh", "start.sh"]
