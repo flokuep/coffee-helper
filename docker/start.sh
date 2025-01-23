@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo "Running migrations..."
-npm --path /usr/src/app/drizzle run migrate  & PID=$!
+npm --prefix "/usr/src/app/drizzle" run migrate  & PID=$!
 # Wait for migration to finish
 wait $PID
 echo "Start application..."
