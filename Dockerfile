@@ -21,6 +21,6 @@ COPY --from=build /usr/src/app/apps/ui/build ./dist/
 WORKDIR /usr/src/app/drizzle
 COPY apps/server/drizzle/* .
 COPY docker/* .
-RUN npm install
+RUN npm install && chmod +x start.sh
 
-CMD ["./start.sh"]
+CMD ["sh", "start.sh"]

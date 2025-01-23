@@ -1,5 +1,10 @@
-#!/usr/bin/env bash
-console.log("Running migrations...")
-exec npm --path /usr/src/app/drizzle run migrate
-console.log("Start application...")
-exec node /usr/src/app/dist/src/main "$@"
+#!/bin/bash
+set -e
+echo "Running migrations..."
+npm --path /usr/src/app/drizzle run migrate  & PID=$!
+# Wait for migration to finish
+wait $PID
+echo "Start application..."
+node /usr/src/app/dist/src/main "$@" & PID=$!
+
+wait $PID
