@@ -6,6 +6,6 @@ npm run migrate  & PID=$!
 wait $PID
 
 echo 'Start application...'
-cd /usr/src/app/src
+cd /usr/src/app/apps/server/dist/src
 node main "$@" & PID=$!
 wait $PID
