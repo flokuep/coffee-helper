@@ -14,6 +14,7 @@ FROM node:lts AS production
 WORKDIR /usr/src/app
 
 # copy artifacts of ui and serer
+COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/apps/server/dist ./
 COPY --from=build /usr/src/app/apps/ui/build ./dist/
 
