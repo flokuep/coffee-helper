@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo 'Running migrations...'
-cd /usr/src/app/drizzle
+cd /usr/src/app/db-migrations
 ls -lart .
 ls -lart meta
 npm run migrate  & PID=$!
