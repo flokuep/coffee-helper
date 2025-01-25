@@ -2,8 +2,6 @@
 set -e
 echo 'Running migrations...'
 cd /usr/src/app/db-migrations
-ls -lart .
-ls -lart meta
 npm run migrate  & PID=$!
 wait $PID
 
