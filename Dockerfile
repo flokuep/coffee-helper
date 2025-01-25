@@ -8,7 +8,7 @@ COPY apps ./apps
 RUN npm i -g pnpm && \
  pnpm install && \
  pnpm build  && \
- cp -r /usr/src/app/apps/ui/build /usr/src/app/apps/server/dist/dist
+ cp -r /usr/src/app/apps/ui/build /usr/src/app/apps/server/dist
 
  # create production image
 #FROM node:lts AS production
