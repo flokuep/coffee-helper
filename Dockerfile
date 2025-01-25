@@ -14,7 +14,7 @@ FROM node:lts AS production
 WORKDIR /usr/src/app
 
 # copy artifacts of ui and serer
-COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/node_modules ./src/node_modules
 COPY --from=build /usr/src/app/apps/server/dist ./
 COPY --from=build /usr/src/app/apps/ui/build ./dist/
 
@@ -22,6 +22,9 @@ COPY --from=build /usr/src/app/apps/ui/build ./dist/
 WORKDIR /usr/src/app/db-migrations
 COPY apps/server/drizzle/ ./drizzle/
 COPY docker/ .
+
+EXPOSE 3000
+
 RUN npm install && chmod +x start.sh
 
 CMD ["sh", "start.sh"]
