@@ -31,6 +31,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^10.0.0
         version: 10.4.13(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.13)
+      '@nestjs/serve-static':
+        specifier: ^4.0.2
+        version: 4.0.2(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.13)(express@4.21.1)
       '@nestjs/swagger':
         specifier: ^8.0.7
         version: 8.1.0(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.13)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
@@ -152,6 +155,9 @@ importers:
       '@oazapfts/runtime':
         specifier: ^1.0.3
         version: 1.0.3
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.8
+        version: 3.0.8(@sveltejs/kit@2.9.0(@sveltejs/vite-plugin-svelte@5.0.1(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))
       '@tailwindcss/forms':
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@20.17.9)(typescript@5.7.2)))
@@ -206,7 +212,7 @@ importers:
         version: 5.8.1
       svelte-check:
         specifier: ^4.0.0
-        version: 4.1.1(picomatch@4.0.1)(svelte@5.8.1)(typescript@5.7.2)
+        version: 4.1.1(picomatch@4.0.2)(svelte@5.8.1)(typescript@5.7.2)
       tailwindcss:
         specifier: ^3.4.9
         version: 3.4.16(ts-node@10.9.2(@types/node@20.17.9)(typescript@5.7.2))
@@ -1146,6 +1152,22 @@ packages:
     peerDependencies:
       typescript: '>=4.8.2'
 
+  '@nestjs/serve-static@4.0.2':
+    resolution: {integrity: sha512-cT0vdWN5ar7jDI2NKbhf4LcwJzU4vS5sVpMkVrHuyLcltbrz6JdGi1TfIMMatP2pNiq5Ie/uUdPSFDVaZX/URQ==}
+    peerDependencies:
+      '@fastify/static': ^6.5.0 || ^7.0.0
+      '@nestjs/common': ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^9.0.0 || ^10.0.0
+      express: ^4.18.1
+      fastify: ^4.7.0
+    peerDependenciesMeta:
+      '@fastify/static':
+        optional: true
+      express:
+        optional: true
+      fastify:
+        optional: true
+
   '@nestjs/swagger@8.1.0':
     resolution: {integrity: sha512-8hzH+r/31XshzXHC9vww4T0xjDAxMzvOaT1xAOvvY1LtXTWyNRCUP2iQsCYJOnnMrR+vydWjvRZiuB3hdvaHxA==}
     peerDependencies:
@@ -1325,6 +1347,11 @@ packages:
 
   '@sveltejs/adapter-auto@3.3.1':
     resolution: {integrity: sha512-5Sc7WAxYdL6q9j/+D0jJKjGREGlfIevDyHSQ2eNETHcB1TKlQWHcAo8AS8H1QdjNvSXpvOwNjykDUHPEAyGgdQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+
+  '@sveltejs/adapter-static@3.0.8':
+    resolution: {integrity: sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
@@ -3495,6 +3522,9 @@ packages:
   path-to-regexp@0.1.10:
     resolution: {integrity: sha512-7lf7qcQidTku0Gu3YDPc8DJ1q7OOucfa/BSsIwjuh56VU7katFvuM8hULfkwB3Fns/rsVF7PwPKVw1sl5KQS9w==}
 
+  path-to-regexp@0.2.5:
+    resolution: {integrity: sha512-l6qtdDPIkmAmzEO6egquYDfqQGPMRNGjYtrU13HAXb3YSRrt7HSb1sJY0pKp6o2bAa86tSB6iwaW2JbthPKr7Q==}
+
   path-to-regexp@3.3.0:
     resolution: {integrity: sha512-qyCH421YQPS2WFDxDjftfc1ZR5WKQzVzqsp4n9M2kQhVOo/ByahFoUNJfl58kOcEGfQ//7weFTDhm+ss8Ecxgw==}
 
@@ -3556,6 +3586,10 @@ packages:
 
   picomatch@4.0.1:
     resolution: {integrity: sha512-xUXwsxNjwTQ8K3GnT4pCJm+xq3RUPQbmkYJTP5aFIfNIvbcc/4MUxgBaaRSZJ6yGJZiGSyYlM6MzwTsRk8SYCg==}
+    engines: {node: '>=12'}
+
+  picomatch@4.0.2:
+    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
     engines: {node: '>=12'}
 
   pify@2.3.0:
@@ -5413,6 +5447,14 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
+  '@nestjs/serve-static@4.0.2(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.13)(express@4.21.1)':
+    dependencies:
+      '@nestjs/common': 10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 10.4.13(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.13)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      path-to-regexp: 0.2.5
+    optionalDependencies:
+      express: 4.21.1
+
   '@nestjs/swagger@8.1.0(@nestjs/common@10.4.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.13)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:
       '@microsoft/tsdoc': 0.15.1
@@ -5546,6 +5588,10 @@ snapshots:
     dependencies:
       '@sveltejs/kit': 2.9.0(@sveltejs/vite-plugin-svelte@5.0.1(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1))
       import-meta-resolve: 4.1.0
+
+  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.9.0(@sveltejs/vite-plugin-svelte@5.0.1(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))':
+    dependencies:
+      '@sveltejs/kit': 2.9.0(@sveltejs/vite-plugin-svelte@5.0.1(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1))
 
   '@sveltejs/kit@2.9.0(@sveltejs/vite-plugin-svelte@5.0.1(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1)))(svelte@5.8.1)(vite@6.0.3(@types/node@20.17.9)(jiti@1.21.6)(terser@5.37.0)(yaml@2.6.1))':
     dependencies:
@@ -6931,9 +6977,9 @@ snapshots:
     dependencies:
       bser: 2.1.1
 
-  fdir@6.4.2(picomatch@4.0.1):
+  fdir@6.4.2(picomatch@4.0.2):
     optionalDependencies:
-      picomatch: 4.0.1
+      picomatch: 4.0.2
 
   figures@3.2.0:
     dependencies:
@@ -8063,6 +8109,8 @@ snapshots:
 
   path-to-regexp@0.1.10: {}
 
+  path-to-regexp@0.2.5: {}
+
   path-to-regexp@3.3.0: {}
 
   path-type@4.0.0: {}
@@ -8121,6 +8169,9 @@ snapshots:
   picomatch@2.3.1: {}
 
   picomatch@4.0.1: {}
+
+  picomatch@4.0.2:
+    optional: true
 
   pify@2.3.0: {}
 
@@ -8608,11 +8659,11 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@4.1.1(picomatch@4.0.1)(svelte@5.8.1)(typescript@5.7.2):
+  svelte-check@4.1.1(picomatch@4.0.2)(svelte@5.8.1)(typescript@5.7.2):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 4.0.1
-      fdir: 6.4.2(picomatch@4.0.1)
+      fdir: 6.4.2(picomatch@4.0.2)
       picocolors: 1.1.1
       sade: 1.8.1
       svelte: 5.8.1

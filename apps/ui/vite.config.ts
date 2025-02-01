@@ -2,7 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 const upstream = {
-	target: process.env.SERVER_URL || 'http://localhost:3000/',
+	target: process.env.SERVER_URL ?? 'http://localhost:3000/',
 	secure: true,
 	changeOrigin: true,
 	logLevel: 'info',
@@ -17,5 +17,8 @@ export default defineConfig({
 			'/api': upstream,
 			'/.well-known/coffee-helper': upstream
 		}
+	},
+	optimizeDeps: {
+		entries: ['src/**/*.{svelte,ts,html}']
 	}
 });

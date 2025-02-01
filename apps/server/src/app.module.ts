@@ -9,6 +9,8 @@ import { ExtractionModule } from './extraction/extraction.module';
 import { AuthModule } from './auth/auth.module';
 import { GroupModule } from './group/group.module';
 import { TokenBypassMiddleware } from './auth/token-bypass.middleware';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -34,6 +36,9 @@ import { TokenBypassMiddleware } from './auth/token-bypass.middleware';
         database: configService.get('POSTGRES_DB'),
         ssl: configService.get('POSTGRES_SSL'),
       }),
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'build'),
     }),
     ExtractionModule,
     BeanModule,
