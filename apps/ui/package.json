@@ -13,7 +13,7 @@
 		"generate-openapi-sdk": "oazapfts --optimistic --argumentStyle=object --useEnumType http://localhost:3000/api-json ./src/generated/fetch-client.ts"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.2.3",
+		"@eslint/compat": "^1.2.6",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
