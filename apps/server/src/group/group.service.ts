@@ -49,4 +49,10 @@ export class GroupService {
       throw new NotFoundException();
     }
   }
+
+  async validateOrCreate(token: string) {
+    if (!(await this.findOne(token))) {
+      this.create({ token, name: '' });
+    }
+  }
 }

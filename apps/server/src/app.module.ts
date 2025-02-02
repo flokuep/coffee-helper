@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  OnApplicationBootstrap,
+} from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { AppController } from './app.controller';
@@ -11,6 +16,7 @@ import { GroupModule } from './group/group.module';
 import { TokenBypassMiddleware } from './auth/token-bypass.middleware';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { GroupService } from './group/group.service';
 
 @Module({
   imports: [
@@ -48,7 +54,20 @@ import { join } from 'path';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule {
+export class AppModule implements NestModule, OnApplicationBootstrap {
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly groupService: GroupService,
+  ) {}
+
+  onApplicationBootstrap() {
+    const token = this.configService.get('GROUP_TOKEN');
+    if (token) {
+      console.log(`Check for token ${token}`);
+      this.groupService.validateOrCreate(token);
+    }
+  }
+
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(TokenBypassMiddleware).forRoutes('*');
   }
