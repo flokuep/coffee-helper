@@ -165,8 +165,8 @@ importers:
         specifier: ^0.5.15
         version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.0)(typescript@5.7.3)))
       oazapfts:
-        specifier: ^6.1.0
-        version: 6.1.0(@oazapfts/runtime@1.0.3)(openapi-types@12.1.3)
+        specifier: ^6.1.2
+        version: 6.1.2(@oazapfts/runtime@1.0.3)(openapi-types@12.1.3)
       sveltekit-i18n:
         specifier: ^2.4.2
         version: 2.4.2(svelte@5.19.6)
@@ -254,8 +254,9 @@ packages:
     resolution: {integrity: sha512-I5wviiIqiFwar9Pdk30Lujk8FczEEc18i22A5c6Z9lbmhPQdTroDnEQdsfXjy404wPe8H62s0I15o4pmMGfTYQ==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
-  '@apidevtools/json-schema-ref-parser@9.0.6':
-    resolution: {integrity: sha512-M3YgsLjI0lZxvrpeGVk9Ap032W6TPQkH6pRAZz81Ac3WUNF79VQooAFnp8umjvVzUmD93NkogxEwbSce7qMsUg==}
+  '@apidevtools/json-schema-ref-parser@11.7.2':
+    resolution: {integrity: sha512-4gY54eEGEstClvEkGnwVkTkrx0sqwemEFG5OSRRn3tD91XH0+Q8XIkYIfo7IwEWPpJZwILb9GUXeShtplRc/eA==}
+    engines: {node: '>= 16'}
 
   '@apidevtools/openapi-schemas@2.1.0':
     resolution: {integrity: sha512-Zc1AlqrJlX3SlpupFGpiLi2EbteyP7fXmUOGup6/DnkRgjP9bgMM/ag+n91rsv0U1Gpz0H3VILA/o3bW7Ua6BQ==}
@@ -264,8 +265,8 @@ packages:
   '@apidevtools/swagger-methods@3.0.2':
     resolution: {integrity: sha512-QAkD5kK2b1WfjDS/UQn/qQkbwF31uqRjPTrsCs5ZG9BQGAkjwvqGFjjPqAuzac/IYzpPtRzjCP1WrTuAIjMrXg==}
 
-  '@apidevtools/swagger-parser@10.1.0':
-    resolution: {integrity: sha512-9Kt7EuS/7WbMAUv2gSziqjvxwDbFSg3Xeyfuj5laUODX8o/k/CpsAKiQ8W7/R88eXFTMbJYg6+7uAmOWNKmwnw==}
+  '@apidevtools/swagger-parser@10.1.1':
+    resolution: {integrity: sha512-u/kozRnsPO/x8QtKYJOqoGtC4kH6yg1lfYkB9Au0WhYB0FNLpyFusttQtvhlwjtG3rOwiRz4D8DnnXa8iEpIKA==}
     peerDependencies:
       openapi-types: '>=7'
 
@@ -3561,8 +3562,8 @@ packages:
   oas-validator@5.0.8:
     resolution: {integrity: sha512-cu20/HE5N5HKqVygs3dt94eYJfBi0TsZvPVXDhbXQHiEityDN+RROTleefoKRKKJ9dFAF2JBkDHgvWj0sjKGmw==}
 
-  oazapfts@6.1.0:
-    resolution: {integrity: sha512-+E0db72jn0AMJ36ZzEXF3qCZ+T4pnOem/tmiJVql1Kx4qkWBE4YGeiUicp3gkzLJ/OrmpvSyAufI8eZ7sODCYg==}
+  oazapfts@6.1.2:
+    resolution: {integrity: sha512-09L37W/guy2L/GlHoRv4IaQsmyUiRYUg5gFqKLeWwtx942HVD0ENgqxfDRuVJDUfe6MVlChiJyCs03twfMsr2Q==}
     hasBin: true
     peerDependencies:
       '@oazapfts/runtime': '*'
@@ -4806,19 +4807,19 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@apidevtools/json-schema-ref-parser@9.0.6':
+  '@apidevtools/json-schema-ref-parser@11.7.2':
     dependencies:
       '@jsdevtools/ono': 7.1.3
-      call-me-maybe: 1.0.2
-      js-yaml: 3.14.1
+      '@types/json-schema': 7.0.15
+      js-yaml: 4.1.0
 
   '@apidevtools/openapi-schemas@2.1.0': {}
 
   '@apidevtools/swagger-methods@3.0.2': {}
 
-  '@apidevtools/swagger-parser@10.1.0(openapi-types@12.1.3)':
+  '@apidevtools/swagger-parser@10.1.1(openapi-types@12.1.3)':
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 9.0.6
+      '@apidevtools/json-schema-ref-parser': 11.7.2
       '@apidevtools/openapi-schemas': 2.1.0
       '@apidevtools/swagger-methods': 3.0.2
       '@jsdevtools/ono': 7.1.3
@@ -8440,9 +8441,9 @@ snapshots:
       should: 13.2.3
       yaml: 1.10.2
 
-  oazapfts@6.1.0(@oazapfts/runtime@1.0.3)(openapi-types@12.1.3):
+  oazapfts@6.1.2(@oazapfts/runtime@1.0.3)(openapi-types@12.1.3):
     dependencies:
-      '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
+      '@apidevtools/swagger-parser': 10.1.1(openapi-types@12.1.3)
       '@oazapfts/runtime': 1.0.3
       lodash: 4.17.21
       minimist: 1.2.8
