@@ -17,6 +17,7 @@ import { TokenBypassMiddleware } from './auth/token-bypass.middleware';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { GroupService } from './group/group.service';
+import { FrontendMiddleware } from './middlewares/FrontendMiddleware';
 
 @Module({
   imports: [
@@ -43,9 +44,6 @@ import { GroupService } from './group/group.service';
         ssl: configService.get('POSTGRES_SSL'),
       }),
     }),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'build'),
-    }),
     ExtractionModule,
     BeanModule,
     GroupModule,
@@ -69,6 +67,7 @@ export class AppModule implements NestModule, OnApplicationBootstrap {
   }
 
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(TokenBypassMiddleware).forRoutes('*');
+    consumer.apply(TokenBypassMiddleware).forRoutes('api/*');
+    consumer.apply(FrontendMiddleware).forRoutes('*');
   }
 }

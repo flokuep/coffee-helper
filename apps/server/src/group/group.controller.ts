@@ -14,7 +14,7 @@ import { Group } from './entities/group.entity';
 import { ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiBearerAuth('defaultBearerAuth')
-@Controller('group')
+@Controller('api/group')
 export class GroupController {
   constructor(private readonly groupService: GroupService) {}
 

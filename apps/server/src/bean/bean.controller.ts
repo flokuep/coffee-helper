@@ -17,7 +17,7 @@ import { CurrentGroup } from 'src/auth/group.decorator';
 import { AuthenticatedGroupDto } from 'src/group/dto/authenticated-group.dto';
 
 @ApiBearerAuth('defaultBearerAuth')
-@Controller('bean')
+@Controller('api/bean')
 export class BeanController {
   constructor(private readonly beansService: BeanService) {}
 
