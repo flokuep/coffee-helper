@@ -18,7 +18,7 @@ export class FrontendMiddleware implements NestMiddleware {
   ];
 
   resolvePath(file: string) {
-    return path.resolve(`dist/${file}`);
+    return path.resolve(`../../../ui/build/${file}`);
   }
 
   use(req: Request, res: Response, next: NextFunction) {
