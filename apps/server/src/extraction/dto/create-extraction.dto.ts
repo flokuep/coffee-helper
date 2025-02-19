@@ -1,10 +1,4 @@
-import {
-  IsInt,
-  IsNumber,
-  IsOptional,
-  IsPositive,
-  IsString,
-} from 'class-validator';
+import { IsNumber, IsOptional, IsPositive, IsString } from 'class-validator';
 
 export class CreateExtractionDto {
   @IsOptional()
@@ -18,12 +12,17 @@ export class CreateExtractionDto {
   out?: number;
 
   @IsOptional()
-  @IsInt()
   @IsPositive()
   time?: number;
 
   @IsOptional()
+  @IsNumber()
+  grind?: number;
+
+  @IsOptional()
   profile?: string;
+
+  @IsOptional()
   flow?: string;
 
   @IsOptional()

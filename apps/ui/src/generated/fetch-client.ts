@@ -16,6 +16,7 @@ export type CreateExtractionDto = {
     "in"?: number;
     "out"?: number;
     time?: number;
+    grind?: number;
     profile?: string;
     flow?: string;
     nextExtractionHint?: string;
@@ -25,6 +26,7 @@ export type Extraction = {
     id: number;
     "in"?: number;
     "out"?: number;
+    grind?: number;
     time?: number;
     profile?: string;
     flow?: string;
@@ -36,6 +38,7 @@ export type UpdateExtractionDto = {
     "in"?: number;
     "out"?: number;
     time?: number;
+    grind?: number;
     profile?: string;
     flow?: string;
     nextExtractionHint?: string;
@@ -72,7 +75,7 @@ export type Group = {
 };
 export type UpdateGroupDto = {};
 export function appControllerLogin(opts?: Oazapfts.RequestOpts) {
-    return oazapfts.ok(oazapfts.fetchText("/api/auth/login", {
+    return oazapfts.ok(oazapfts.fetchText("/auth/login", {
         ...opts,
         method: "POST"
     }));
@@ -81,7 +84,7 @@ export function appControllerLogout(opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
         status: 201;
         data: object;
-    }>("/api/auth/logout", {
+    }>("/auth/logout", {
         ...opts,
         method: "POST"
     }));
@@ -105,7 +108,7 @@ export function extractionControllerFindAllForBean({ beanId }: {
     return oazapfts.ok(oazapfts.fetchJson<{
         status: 200;
         data: Extraction[];
-    }>(`/api/extraction/${encodeURIComponent(beanId)}`, {
+    }>(`/api/extraction/for-bean/${encodeURIComponent(beanId)}`, {
         ...opts
     }));
 }

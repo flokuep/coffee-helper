@@ -16,6 +16,7 @@
 
 	let { extraction, beanId }: Props = $props();
 
+	let grind = $state(extraction ? extraction.grind : undefined);
 	let coffeeIn = $state(extraction ? extraction.in : undefined);
 	let coffeeOut = $state(extraction ? extraction.out : undefined);
 	let time = $state(extraction ? extraction.time : undefined);
@@ -29,6 +30,7 @@
 			await extractionControllerUpdate({
 				id: extraction.id,
 				updateExtractionDto: {
+					grind,
 					in: coffeeIn,
 					out: coffeeOut,
 					time,
@@ -41,6 +43,7 @@
 		} else {
 			await extractionControllerCreate({
 				createExtractionDto: {
+					grind, 
 					in: coffeeIn,
 					out: coffeeOut,
 					time,
@@ -56,9 +59,10 @@
 </script>
 
 <form onsubmit={onSave}>
+	<InputNumeric label={$t('extraction.grind')} bind:value={grind} step={0.5}></InputNumeric>
 	<InputNumeric label={$t('extraction.in')} bind:value={coffeeIn} step={0.1}></InputNumeric>
 	<InputNumeric label={$t('extraction.out')} bind:value={coffeeOut} step={0.1}></InputNumeric>
-	<InputNumeric label={$t('extraction.time')} bind:value={time}></InputNumeric>
+	<InputNumeric label={$t('extraction.time')} bind:value={time} step={0.1}></InputNumeric>
 	<InputTextual label={$t('extraction.barista')} bind:value={barista}></InputTextual>
 	<InputTextual label={$t('extraction.profile')} bind:value={profile}></InputTextual>
 	<InputTextual label={$t('extraction.flow')} bind:value={flow}></InputTextual>

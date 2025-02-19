@@ -49,6 +49,7 @@ export const extractionFlow = pgEnum('extraction_flow', [
 export const extractions = pgTable('extractions', {
   id: serial().primaryKey(),
   beanId: serial().references(() => beans.id),
+  grind: real(),
   in: real(),
   out: real(),
   time: real(),
