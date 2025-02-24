@@ -2,5 +2,28 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "labels": ["dependencies"],
+  "rangeStrategy": "replace",
+  "compatibility": { "pnpm": "^5.0.0" },
+  {
+      "matchFileNames": [
+        "apps/server/**",
+      ],
+      "groupName": "server",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+  },
+  {
+      "matchFileNames": [
+        "apps/ui/**",
+      ],
+      "groupName": "ui",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
 }
