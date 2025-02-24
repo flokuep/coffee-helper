@@ -29,9 +29,11 @@ export class ExtractionService {
   }
 
   async findOne(id: number): Promise<Extraction> {
-    const extraction = this.drizzleService.db.query.extractions.findFirst({
-      where: eq(databaseSchema.extractions.id, id),
-    });
+    const extraction = await this.drizzleService.db.query.extractions.findFirst(
+      {
+        where: eq(databaseSchema.extractions.id, id),
+      },
+    );
 
     if (!extraction) {
       throw new NotFoundException();
