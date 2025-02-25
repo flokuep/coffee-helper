@@ -4,7 +4,7 @@
   "labels": ["dependencies"],
   "rangeStrategy": "replace",
   "constraints": {
-    "pnpm": "^5.0.0"
+    "pnpm": "^9.0.0"
   },
   "packageRules": [
     {
