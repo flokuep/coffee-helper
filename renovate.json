@@ -6,6 +6,7 @@
   "labels": ["dependencies"],
   "rangeStrategy": "replace",
   "compatibility": { "pnpm": "^5.0.0" },
+  "packageRules": [
   {
       "matchFileNames": [
         "apps/server/**",
@@ -25,5 +26,6 @@
         "minor",
         "patch"
       ]
-    },
+    }
+  ]
 }
