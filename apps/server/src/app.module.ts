@@ -67,7 +67,7 @@ export class AppModule implements NestModule, OnApplicationBootstrap {
   }
 
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(TokenBypassMiddleware).forRoutes('api/*');
-    consumer.apply(FrontendMiddleware).forRoutes('*');
+    consumer.apply(TokenBypassMiddleware).forRoutes('api/*path');
+    consumer.apply(FrontendMiddleware).forRoutes('*path');
   }
 }
