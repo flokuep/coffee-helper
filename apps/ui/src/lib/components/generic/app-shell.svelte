@@ -11,9 +11,7 @@
 
 <div class="flex flex-col overflow-hidden">
 	{#if header}
-		<header class="border-b border-gray-200 dark:border-gray-800">
-			{@render header()}
-		</header>
+		{@render header()}
 	{/if}
 	{@render children()}
 </div>

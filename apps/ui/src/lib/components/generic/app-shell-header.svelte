@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n';
 	import Button from './button.svelte';
 
 	type Props = {
@@ -12,7 +13,9 @@
 	const { title, action }: Props = $props();
 </script>
 
-<h1>{title}</h1>
-{#if action}
-	<Button type="link" label={action.label} href={action.href}></Button>
-{/if}
+<header class="flex flex-row border-b border-gray-200 px-5 pb-2 dark:border-gray-800">
+	<h1 class="grow text-xl font-medium">{title}</h1>
+	{#if action}
+		<Button type="link" description={action.label} label={action.label} href={action.href}></Button>
+	{/if}
+</header>

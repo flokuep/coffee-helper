@@ -14,8 +14,6 @@ import { ExtractionModule } from './extraction/extraction.module';
 import { AuthModule } from './auth/auth.module';
 import { GroupModule } from './group/group.module';
 import { TokenBypassMiddleware } from './auth/token-bypass.middleware';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
 import { GroupService } from './group/group.service';
 import { FrontendMiddleware } from './middlewares/FrontendMiddleware';
 
