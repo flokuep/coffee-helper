@@ -13,5 +13,7 @@
 	{#if header}
 		{@render header()}
 	{/if}
-	{@render children()}
+	<div role="main" class="px-5 pt-3">
+		{@render children()}
+	</div>
 </div>

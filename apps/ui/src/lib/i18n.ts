@@ -1,22 +1,22 @@
 import i18n from 'sveltekit-i18n';
 import lang from '../lang/lang.json';
 
+const langKeys = ['generic', 'beans', 'extractions'];
+const languages = Object.keys(lang);
+
 const config = {
 	translations: {
 		de: { lang }
 	},
-	loaders: [
-		{
-			locale: 'de',
-			key: 'beans',
-			loader: async () => (await import('../lang/de/beans.json')).default
-		},
-		{
-			locale: 'de',
-			key: 'extractions',
-			loader: async () => (await import('../lang/de/extractions.json')).default
-		}
-	]
+	loaders: langKeys.flatMap((key) =>
+		languages.map((lang) => {
+			return {
+				locale: lang,
+				key: key,
+				loader: async () => (await import('../lang/' + lang + '/' + key + '.json')).default
+			};
+		})
+	)
 };
 
 export const { t, locale, locales, loading, loadTranslations } = new i18n(config);

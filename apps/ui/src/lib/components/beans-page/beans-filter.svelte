@@ -1,11 +1,22 @@
 <script lang="ts">
-	import InputTextual from '../generic/input-textual.svelte';
+	import { t } from '$lib/i18n';
+	import Chip from '../generic/chip.svelte';
 
 	interface Props {
 		value: string | undefined;
+		decaf: boolean;
 	}
 
-	let { value = $bindable(undefined) }: Props = $props();
+	let { value = $bindable(undefined), decaf = $bindable(false) }: Props = $props();
 </script>
 
-<input id="filter" type="text" bind:value placeholder="Filter..." />
+<div class="flex">
+	<input
+		class="mr-2 grow border-b-1 border-gray-300"
+		id="filter"
+		type="text"
+		bind:value
+		placeholder={$t('generic.filter')}
+	/>
+	<Chip bind:active={decaf} label={$t('beans.decaf')}></Chip>
+</div>

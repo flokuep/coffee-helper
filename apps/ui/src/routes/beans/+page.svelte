@@ -10,14 +10,16 @@
 	}
 
 	let { data }: Props = $props();
-	let filter = $state('');
+	let filterValue = $state('');
+	let filterDecaf = $state(false);
+
 	let filteredBeans = $derived(
-		filter !== ''
+		filterValue !== ''
 			? data.beans.filter(
 					(bean) =>
-						bean.name.toLowerCase().includes(filter.toLowerCase()) ||
-						bean.manufacturer.toLowerCase().includes(filter.toLowerCase()) ||
-						bean.profile?.toLowerCase().includes(filter.toLowerCase())
+						bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+						bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
+						bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
 				)
 			: data.beans
 	);
@@ -27,6 +29,6 @@
 	{#snippet header()}
 		<AppShellHeader title="Bohnen" action={{ label: 'Neu', href: '/beans/new' }}></AppShellHeader>
 	{/snippet}
-	<BeansFilter bind:value={filter} />
+	<BeansFilter bind:value={filterValue} bind:decaf={filterDecaf} />
 	<BeansList beans={filteredBeans} />
 </AppShell>
