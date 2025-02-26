@@ -15,6 +15,7 @@ export class FrontendMiddleware implements NestMiddleware {
     '.woff',
     '.ttf',
     '.svg',
+    '.json',
   ];
 
   resolvePath(file: string) {
