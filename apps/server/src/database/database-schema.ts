@@ -6,6 +6,7 @@ import {
   timestamp,
   real,
   pgEnum,
+  boolean,
 } from 'drizzle-orm/pg-core';
 
 export const beans = pgTable('beans', {
@@ -14,6 +15,7 @@ export const beans = pgTable('beans', {
   manufacturer: text(),
   profile: text(),
   notes: text(),
+  decaf: boolean().default(false),
   groupId: serial().references(() => groups.id),
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp()

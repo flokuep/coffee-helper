@@ -1,0 +1,1 @@
+ALTER TABLE "beans" ADD COLUMN "decaf" boolean;

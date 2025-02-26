@@ -1,0 +1,1 @@
+ALTER TABLE "beans" ALTER COLUMN "decaf" SET DEFAULT false;
