@@ -8,9 +8,9 @@
 </script>
 
 <button
-	class="cursor-pointer rounded-lg border-1 px-1 {active
-		? 'border-gray-800 bg-gray-800 text-gray-300'
-		: 'border-gray-300 bg-gray-300 text-gray-800'}"
+	class="cursor-pointer rounded-2xl px-2 {active
+		? 'bg-yellow-900 text-stone-200'
+		: 'bg-yellow-600 text-yellow-50'}"
 	onclick={() => (active = !active)}
 >
 	{label}

@@ -9,7 +9,7 @@
 	let { beans }: Props = $props();
 </script>
 
-<ul>
+<ul class="pt-4">
 	{#each beans as bean (bean.id)}
 		<BeansListEntry {bean} />
 	{/each}
