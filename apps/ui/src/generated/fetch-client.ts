@@ -47,6 +47,7 @@ export type UpdateExtractionDto = {
 export type CreateBeanDto = {
     name: string;
     manufacturer: string;
+    decaf: boolean;
     profile?: string;
     notes?: string;
 };
@@ -54,6 +55,7 @@ export type Bean = {
     id: number;
     name: string;
     manufacturer: string;
+    decaf: boolean;
     profile?: string;
     notes?: string;
     extractions: Extraction[];
