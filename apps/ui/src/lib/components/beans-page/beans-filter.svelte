@@ -10,9 +10,9 @@
 	let { value = $bindable(undefined), decaf = $bindable(false) }: Props = $props();
 </script>
 
-<div class="flex">
+<div class="my-2 flex">
 	<input
-		class="mr-2 grow border-b-1 border-gray-300"
+		class="mr-4 grow border-b-1 border-gray-300 px-1 focus:border-yellow-600 focus:outline-0"
 		id="filter"
 		type="text"
 		bind:value
