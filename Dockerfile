@@ -9,9 +9,6 @@ RUN npm i -g pnpm && \
  pnpm install && \
  pnpm build
 
-# copy lang files
-COPY apps/ui/src/lang /usr/src/app/apps/ui/build/_app/immutable
-
  # create production image
 #FROM node:lts AS production
 #WORKDIR /usr/src/app
