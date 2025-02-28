@@ -8,6 +8,7 @@
 		type Extraction
 	} from '../../../generated/fetch-client';
 	import InputNumeric from '../generic/input-numeric.svelte';
+	import InputRadio from '../generic/input-radio.svelte';
 
 	interface Props {
 		beanId: number;
@@ -43,7 +44,7 @@
 		} else {
 			await extractionControllerCreate({
 				createExtractionDto: {
-					grind, 
+					grind,
 					in: coffeeIn,
 					out: coffeeOut,
 					time,
@@ -64,9 +65,29 @@
 	<InputNumeric label={$t('extraction.out')} bind:value={coffeeOut} step={0.1}></InputNumeric>
 	<InputNumeric label={$t('extraction.time')} bind:value={time} step={0.1}></InputNumeric>
 	<InputTextual label={$t('extraction.barista')} bind:value={barista}></InputTextual>
-	<InputTextual label={$t('extraction.profile')} bind:value={profile}></InputTextual>
-	<InputTextual label={$t('extraction.flow')} bind:value={flow}></InputTextual>
+	<InputRadio
+		label={$t('extraction.profile')}
+		bind:value={profile}
+		options={[
+			{ key: 'very_sour', value: 'very sour' },
+			{ key: 'sour', value: 'sour' },
+			{ key: 'perfect', value: 'perfect' },
+			{ key: 'bitter', value: 'bitter' },
+			{ key: 'very_bitter', value: 'very bitter' }
+		]}
+	></InputRadio>
+	<InputRadio
+		label={$t('extraction.flow')}
+		bind:value={flow}
+		options={[
+			{ key: 'very_slow', value: 'very slow' },
+			{ key: 'slow', value: 'slow' },
+			{ key: 'perfect', value: 'perfect' },
+			{ key: 'fast', value: 'fast' },
+			{ key: 'very_fast', value: 'very fast' }
+		]}
+	></InputRadio>
 	<InputTextual label={$t('extraction.nextExtractionHint')} bind:value={nextExtractionHint}
 	></InputTextual>
-	<Button type="submit" label="Speichern"></Button>
+	<Button type="submit" description="Speichert das Formular" label="Speichern"></Button>
 </form>
