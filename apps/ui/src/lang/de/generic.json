@@ -1,3 +1,6 @@
 {
-  "filter": "Filter..."
+  "filter": "Filter...",
+  "new": "Neu",
+  "save": "Speichern",
+  "saveForm": "Speichert das Formular"
 }

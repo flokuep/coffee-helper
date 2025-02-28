@@ -26,7 +26,9 @@
 				updateBeanDto: { name, manufacturer, profile, notes }
 			});
 		} else {
-			await beanControllerCreate({ createBeanDto: { name, manufacturer, profile, notes } });
+			await beanControllerCreate({
+				createBeanDto: { name, manufacturer, profile, notes, decaf: false }
+			});
 		}
 	}
 </script>
@@ -36,5 +38,5 @@
 	<InputTextual label={$t('beans.manufacturer')} bind:value={manufacturer}></InputTextual>
 	<InputTextual label={$t('beans.profile')} bind:value={profile}></InputTextual>
 	<InputTextual label={$t('beans.notes')} bind:value={notes}></InputTextual>
-	<Button type="submit" label="Speichern"></Button>
+	<Button type="submit" description={$t('generic.saveForm')} label={$t('generic.save')}></Button>
 </form>

@@ -1,7 +1,10 @@
 {
-	"bean": "Bohne",
-	"manufacturer": "Rösterei",
-	"profile": "Profil",
-	"notes": "Notizen",
-	"decaf": "Decaf"
+  "bean": "Bohne",
+  "manufacturer": "Rösterei",
+  "profile": "Profil",
+  "notes": "Notizen",
+  "decaf": "Decaf",
+  "create": "Neue Bohne anlegen",
+  "brew": "Brühen",
+  "edit": "Bohne bearbeiten"
 }

@@ -1,1 +1,13 @@
-{}
+{
+  "add": "Extraktion hinzufügen",
+  "edit": "Extraktion bearbeiten",
+  "grind": "Mahlgrad",
+  "in": "In",
+  "out": "Out",
+  "time": "Zeit",
+  "barista": "Barista",
+  "profile": "Profil",
+  "flow": "Durchfluss",
+  "nextExtractionHint": "Hinweis für nächste Extraktion",
+  "none": "Bisher keine Extraktion"
+}

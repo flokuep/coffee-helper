@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n';
 	import type { Bean } from '../../../generated/fetch-client';
 	import ExtractionDetails from '../beans-details-page/extraction-details.svelte';
 	import ExtractionsList from '../beans-details-page/extractions-list.svelte';
@@ -16,7 +17,7 @@
 	<p>{bean.profile}</p>
 	<p>{bean.notes}</p>
 	{#if bean.extractions.length == 0}
-		<p>bisher keine Extraktion</p>
+		<p>{$t('extractions.none')}</p>
 	{:else}
 		<ExtractionDetails extraction={bean.extractions[0]} />
 		<ExtractionsList extractions={bean.extractions} />

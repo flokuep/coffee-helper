@@ -60,13 +60,13 @@
 </script>
 
 <form onsubmit={onSave}>
-	<InputNumeric label={$t('extraction.grind')} bind:value={grind} step={0.5}></InputNumeric>
-	<InputNumeric label={$t('extraction.in')} bind:value={coffeeIn} step={0.1}></InputNumeric>
-	<InputNumeric label={$t('extraction.out')} bind:value={coffeeOut} step={0.1}></InputNumeric>
-	<InputNumeric label={$t('extraction.time')} bind:value={time} step={0.1}></InputNumeric>
-	<InputTextual label={$t('extraction.barista')} bind:value={barista}></InputTextual>
+	<InputNumeric label={$t('extractions.grind')} bind:value={grind} step={0.5}></InputNumeric>
+	<InputNumeric label={$t('extractions.in')} bind:value={coffeeIn} step={0.1}></InputNumeric>
+	<InputNumeric label={$t('extractions.out')} bind:value={coffeeOut} step={0.1}></InputNumeric>
+	<InputNumeric label={$t('extractions.time')} bind:value={time} step={0.1}></InputNumeric>
+	<InputTextual label={$t('extractions.barista')} bind:value={barista}></InputTextual>
 	<InputRadio
-		label={$t('extraction.profile')}
+		label={$t('extractions.profile')}
 		bind:value={profile}
 		options={[
 			{ key: 'very_sour', value: 'very sour' },
@@ -77,7 +77,7 @@
 		]}
 	></InputRadio>
 	<InputRadio
-		label={$t('extraction.flow')}
+		label={$t('extractions.flow')}
 		bind:value={flow}
 		options={[
 			{ key: 'very_slow', value: 'very slow' },
@@ -87,7 +87,7 @@
 			{ key: 'very_fast', value: 'very fast' }
 		]}
 	></InputRadio>
-	<InputTextual label={$t('extraction.nextExtractionHint')} bind:value={nextExtractionHint}
+	<InputTextual label={$t('extractions.nextExtractionHint')} bind:value={nextExtractionHint}
 	></InputTextual>
-	<Button type="submit" description="Speichert das Formular" label="Speichern"></Button>
+	<Button type="submit" description={$t('generic.saveForm')} label={$t('generic.save')}></Button>
 </form>
