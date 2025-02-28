@@ -68,24 +68,14 @@
 	<InputRadio
 		label={$t('extractions.profile')}
 		bind:value={profile}
-		options={[
-			{ key: 'very_sour', value: 'very sour' },
-			{ key: 'sour', value: 'sour' },
-			{ key: 'perfect', value: 'perfect' },
-			{ key: 'bitter', value: 'bitter' },
-			{ key: 'very_bitter', value: 'very bitter' }
-		]}
+		translationPrefix="extractions.profileValues"
+		options={['very_sour', 'sour', 'perfect', 'bitter', 'very_bitter']}
 	></InputRadio>
 	<InputRadio
 		label={$t('extractions.flow')}
 		bind:value={flow}
-		options={[
-			{ key: 'very_slow', value: 'very slow' },
-			{ key: 'slow', value: 'slow' },
-			{ key: 'perfect', value: 'perfect' },
-			{ key: 'fast', value: 'fast' },
-			{ key: 'very_fast', value: 'very fast' }
-		]}
+		translationPrefix="extractions.flowValues"
+		options={['very_slow', 'slow', 'perfect', 'fast', 'very_fast']}
 	></InputRadio>
 	<InputTextual label={$t('extractions.nextExtractionHint')} bind:value={nextExtractionHint}
 	></InputTextual>
