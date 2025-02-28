@@ -13,8 +13,7 @@ const config = {
 			return {
 				locale: lang,
 				key: key,
-				loader: async () =>
-					(await import(/* @vite-ignore */ '../lang/' + lang + '/' + key + '.json')).default
+				loader: async () => (await import(`../lang/${lang}/${key}.json`)).default
 			};
 		})
 	)
