@@ -1,27 +1,29 @@
 {
-	"add": "Extraktion hinzufügen",
-	"edit": "Extraktion bearbeiten",
-	"grind": "Mahlgrad",
-	"in": "In",
-	"out": "Out",
-	"time": "Zeit",
-	"barista": "Barista",
-	"profile": "Profil",
-	"profileValues": {
-		"very_sour": "sehr sauer",
-		"sour": "sauer",
-		"perfect": "perfekt",
-		"bitter": "bitter",
-		"very_bitter": "sehr bitter"
-	},
-	"flow": "Durchfluss",
-	"flowValues": {
-		"very_slow": "sehr langsam",
-		"slow": "langsam",
-		"perfect": "perfekt",
-		"fast": "schnell",
-		"very_fast": "sehr schnell"
-	},
-	"nextExtractionHint": "Hinweis für nächste Extraktion",
-	"none": "Bisher keine Extraktion"
+  "add": "Extraktion hinzufügen",
+  "edit": "Extraktion bearbeiten",
+  "grind": "Mahlgrad",
+  "in": "In",
+  "out": "Out",
+  "time": "Zeit",
+  "barista": "Barista",
+  "profile": "Profil",
+  "profileValues": {
+    "very_sour": "sehr sauer",
+    "sour": "sauer",
+    "perfect": "perfekt",
+    "bitter": "bitter",
+    "very_bitter": "sehr bitter"
+  },
+  "flow": "Durchfluss",
+  "flowValues": {
+    "very_slow": "sehr langsam",
+    "slow": "langsam",
+    "perfect": "perfekt",
+    "fast": "schnell",
+    "very_fast": "sehr schnell"
+  },
+  "nextExtractionHint": "Hinweis für nächste Extraktion",
+  "none": "Bisher keine Extraktion",
+  "last": "Letzte Extraktion",
+  "previous": "Vorherige Extraktionen"
 }

@@ -12,14 +12,16 @@
 </script>
 
 <div>
-	<h1>{bean.name}</h1>
-	<h2>{bean.manufacturer}</h2>
-	<p>{bean.profile}</p>
-	<p>{bean.notes}</p>
+	{#if bean.profile}
+		<p>{$t('beans.profile')}: {bean.profile}</p>
+	{/if}
+	{#if bean.notes}
+		<p>{$t('beans.notes')}:{bean.notes}</p>
+	{/if}
 	{#if bean.extractions.length == 0}
 		<p>{$t('extractions.none')}</p>
 	{:else}
 		<ExtractionDetails extraction={bean.extractions[0]} />
-		<ExtractionsList extractions={bean.extractions} />
+		<ExtractionsList extractions={bean.extractions.slice(1)} />
 	{/if}
 </div>

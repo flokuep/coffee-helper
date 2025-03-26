@@ -9,5 +9,5 @@
 </script>
 
 <li>
-	{extraction.in} &middot; {extraction.out} &middot; {extraction.time}
+	{extraction.in}g &middot; {extraction.grind} &middot; {extraction.out}g &middot; {extraction.time}s
 </li>

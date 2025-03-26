@@ -10,7 +10,7 @@
 <AppShell>
 	{#snippet header()}
 		<AppShellHeader
-			title={data.bean.name}
+			title={`${data.bean.name}, ${data.bean.manufacturer}`}
 			action={{ label: $t('beans.brew'), href: `/beans/${data.bean.id}/extractions/new` }}
 		></AppShellHeader>
 	{/snippet}
