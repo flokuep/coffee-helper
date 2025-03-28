@@ -9,7 +9,7 @@
 	let { extraction }: Props = $props();
 </script>
 
-<h1 class="border-b-1 border-yellow-600 pt-3 pb-1">
+<h1 class="mt-5 mb-1 border-b-1 border-yellow-600">
 	{$t('extractions.last')}: {extraction.createdAt}
 </h1>
 <p class="pt-2">

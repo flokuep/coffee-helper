@@ -10,9 +10,11 @@
 	let { extractions }: Props = $props();
 </script>
 
-<h1 class="border-b-1 border-yellow-600 pt-3 pb-1">{$t('extractions.previous')}</h1>
-<ul class="pt-2">
-	{#each extractions as extraction (extraction.id)}
-		<ExtractionsListEntry {extraction} />
-	{/each}
-</ul>
+{#if extractions.length > 0}
+	<h1 class="mt-5 mb-1 border-b-1 border-yellow-600">{$t('extractions.previous')}</h1>
+	<ul class="pt-2">
+		{#each extractions as extraction (extraction.id)}
+			<ExtractionsListEntry {extraction} />
+		{/each}
+	</ul>
+{/if}
