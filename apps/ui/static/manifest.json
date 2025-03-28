@@ -1,0 +1,8 @@
+{
+	"name": "Coffe Helper",
+	"theme_color": "#d08700",
+	"background_color": "#733e0a",
+	"display": "standalone",
+	"scope": "/",
+	"start_url": "/beans"
+}
