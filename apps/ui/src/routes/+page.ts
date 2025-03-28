@@ -2,6 +2,7 @@
 //import { serverConfig } from '$lib/stores/server-config.store';
 //import { getFormatter } from '$lib/utils/i18n';
 import { init } from '$lib/utils/server';
+import { redirect } from '@sveltejs/kit';
 
 //import { loadUser } from '../lib/utils/auth';
 import type { PageLoad } from './$types';
@@ -12,6 +13,7 @@ export const csr = true;
 export const load = (async ({ fetch }) => {
 	try {
 		await init(fetch);
+		redirect(302, '/beans');
 		/*
         const authenticated = await loadUser();
 		if (authenticated) {
