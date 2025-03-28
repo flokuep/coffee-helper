@@ -14,7 +14,7 @@
 
 <li class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5">
 	<a href="/beans/{bean.id}">
-		{bean.name} - {bean.manufacturer}<br />
+		{bean.name}, {bean.manufacturer}<br />
 		{#if extraction}
 			{#if extraction.flow !== 'perfect' || extraction.profile !== 'perfect'}
 				(!)
