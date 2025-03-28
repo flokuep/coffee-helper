@@ -4,6 +4,7 @@
 	import AppShellHeader from '$lib/components/generic/app-shell-header.svelte';
 	import AppShell from '$lib/components/generic/app-shell.svelte';
 	import { t } from '$lib/i18n';
+	import type { Bean } from '../../generated/fetch-client';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -14,16 +15,16 @@
 	let filterValue = $state('');
 	let filterDecaf = $state(false);
 
-	let filteredBeans = $derived(
-		filterValue !== ''
-			? data.beans.filter(
-					(bean) =>
-						bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
-						bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
-						bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
-				)
-			: data.beans
-	);
+	function filter(bean: Bean) {
+		return (
+			bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+			bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
+			bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
+		);
+	}
+
+	const currentBeans = $derived(data.beans.slice(0, 4).filter(filter));
+	const otherBeans = $derived(data.beans.slice(4).filter(filter));
 </script>
 
 <AppShell>
@@ -32,5 +33,12 @@
 		></AppShellHeader>
 	{/snippet}
 	<BeansFilter bind:value={filterValue} bind:decaf={filterDecaf} />
-	<BeansList beans={filteredBeans} />
+	<h1 class="mt-7 border-b-1 border-yellow-600">{$t('beans.currentBeans')}</h1>
+	<BeansList beans={currentBeans} />
+	{#if data.beans.length > 5}
+		<h1 class="mt-10 border-b-1 border-yellow-600">
+			{$t('beans.moreBeans')}
+		</h1>
+		<BeansList beans={otherBeans} />
+	{/if}
 </AppShell>

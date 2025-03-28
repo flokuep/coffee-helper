@@ -6,5 +6,7 @@
   "decaf": "Decaf",
   "create": "Neue Bohne anlegen",
   "brew": "Brühen",
-  "edit": "Bohne bearbeiten"
+  "edit": "Bohne bearbeiten",
+  "currentBeans": "Deine aktuellen Bohnen",
+  "moreBeans": "Weitere Bohnen"
 }
