@@ -9,6 +9,7 @@
 	} from '../../../generated/fetch-client';
 	import InputNumeric from '../generic/input-numeric.svelte';
 	import InputRadio from '../generic/input-radio.svelte';
+	import { goto } from '$app/navigation';
 
 	interface Props {
 		beanId: number;
@@ -56,6 +57,7 @@
 				beanId
 			});
 		}
+		goto(`/beans/${beanId}`);
 	}
 </script>
 

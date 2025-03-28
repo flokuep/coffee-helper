@@ -7,6 +7,7 @@
 	import Button from '../generic/button.svelte';
 	import InputTextual from '../generic/input-textual.svelte';
 	import { t } from '$lib/i18n';
+	import { goto } from '$app/navigation';
 
 	interface Props {
 		bean?: Bean;
@@ -30,6 +31,7 @@
 				createBeanDto: { name, manufacturer, profile, notes, decaf: false }
 			});
 		}
+		goto('/beans');
 	}
 </script>
 
