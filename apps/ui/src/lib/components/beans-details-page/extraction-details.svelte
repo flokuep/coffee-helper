@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
+	import Time from 'svelte-time/Time.svelte';
 	import type { Extraction } from '../../../generated/fetch-client';
 
 	interface Props {
@@ -10,7 +11,8 @@
 </script>
 
 <h1 class="mt-5 mb-1 border-b-1 border-yellow-600">
-	{$t('extractions.last')}: {extraction.createdAt}
+	{$t('extractions.last')}
+	<Time relative timestamp={extraction.createdAt}></Time>
 </h1>
 <p class="pt-2">
 	{$t('extractions.in')}: {extraction.in}g &middot; {$t('extractions.grind')}: {extraction.grind}<br

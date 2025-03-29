@@ -1,5 +1,10 @@
 import i18n from 'sveltekit-i18n';
 import lang from '../lang/lang.json';
+import 'dayjs/locale/de'; // German locale
+import { dayjs } from 'svelte-time';
+
+// Set the default locale to German.
+dayjs.locale('de');
 
 const langKeys = ['generic', 'beans', 'extractions'];
 const languages = Object.keys(lang);
