@@ -5,17 +5,5 @@
   "rangeStrategy": "replace",
   "constraints": {
     "pnpm": "^9.0.0"
-  },
-  "packageRules": [
-    {
-      "matchFileNames": ["apps/server/**"],
-      "groupName": "server",
-      "matchUpdateTypes": ["minor", "patch"]
-    },
-    {
-      "matchFileNames": ["apps/ui/**"],
-      "groupName": "ui",
-      "matchUpdateTypes": ["minor", "patch"]
-    }
-  ]
+  }
 }
