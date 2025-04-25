@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { t } from '$lib/i18n';
 	import type { Bean } from '../../../generated/fetch-client';
-	import ExtractionDetails from '../beans-details-page/extraction-details.svelte';
-	import ExtractionsList from '../beans-details-page/extractions-list.svelte';
+	import ExtractionDetails from './extraction-details.svelte';
+	import ExtractionsTable from './extractions-table.svelte';
 
 	interface Props {
 		bean: Bean;
@@ -22,6 +22,6 @@
 		<p>{$t('extractions.none')}</p>
 	{:else}
 		<ExtractionDetails extraction={bean.extractions[0]} />
-		<ExtractionsList extractions={bean.extractions.slice(1)} />
+		<ExtractionsTable extractions={bean.extractions.slice(1)} />
 	{/if}
 </div>
