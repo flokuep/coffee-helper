@@ -12,7 +12,7 @@
 
 <div class="my-2 flex">
 	<input
-		class="mr-4 grow border-b-1 border-gray-300 px-3 py-1.5 text-base focus:border-yellow-600 focus:outline-0"
+		class="me-4 grow border-b-1 border-gray-300 px-3 py-1.5 text-base focus:border-yellow-600 focus:outline-0"
 		id="filter"
 		type="text"
 		bind:value

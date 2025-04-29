@@ -17,14 +17,14 @@
 </h1>
 <div class="grid grid-cols-2 pt-2 md:grid-cols-[1fr_auto_auto_1fr]">
 	<div class="my-2 flex items-center justify-center p-1 md:col-start-2 md:p-5">
-		<Settings size={64} strokeWidth={1} class="mr-1" />
+		<Settings size={64} strokeWidth={1} class="me-1" />
 		<span class="text-2xl">{extraction.grind}</span>
 	</div>
 
 	<div
 		class="my-2 flex items-center justify-center border-yellow-600 p-1 md:col-start-3 md:border-l-1 md:p-5"
 	>
-		<Scale size={64} strokeWidth={1} class="mr-2" />
+		<Scale size={64} strokeWidth={1} class="me-2" />
 		<span class="text-2xl">{extraction.in}g</span>
 	</div>
 
@@ -38,21 +38,21 @@
 	<div
 		class="my-2 flex items-center justify-center p-1 md:col-start-3 md:border-l-1 md:border-yellow-600 md:p-5"
 	>
-		<Coffee size={64} strokeWidth={1} class="mr-2" />
+		<Coffee size={64} strokeWidth={1} class="me-2" />
 		<span class="text-2xl">{extraction.out}g</span>
 	</div>
 
 	<div class="col-span-2 my-4 border-b-1 border-yellow-600 md:col-start-2"></div>
 
 	<div class="my-2 flex items-center justify-center p-1 md:col-start-2 md:p-5">
-		<Droplets size={64} strokeWidth={1} class="mr-1" />
+		<Droplets size={64} strokeWidth={1} class="me-1" />
 		<span class="text-2xl">{$t(`extractions.flowValues.${extraction.flow}`)}</span>
 	</div>
 
 	<div
 		class="my-2 flex items-center justify-center p-1 md:col-start-3 md:border-l-1 md:border-yellow-600 md:p-5"
 	>
-		<MessageCircleQuestion size={64} strokeWidth={1} class="mr-1" />
+		<MessageCircleQuestion size={64} strokeWidth={1} class="me-1" />
 		<span class="text-2xl">{$t(`extractions.profileValues.${extraction.profile}`)}</span>
 	</div>
 
