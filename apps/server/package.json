@@ -37,7 +37,7 @@
     "drizzle-kit": "^0.31.0",
     "drizzle-orm": "^0.44.0",
     "helmet": "^8.1.0",
-    "joi": "^17.13.3",
+    "joi": "^18.0.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-unique-token": "^3.0.0",
