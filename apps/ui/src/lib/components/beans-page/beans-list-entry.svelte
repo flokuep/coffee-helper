@@ -13,7 +13,7 @@
 	);
 </script>
 
-<li class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5">
+<li class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5 dark:bg-stone-900 dark:border-stone-700">
 	<a href="/beans/{bean.id}">
 		<div>{bean.name}, {bean.manufacturer}</div>
 		{#if extraction}
