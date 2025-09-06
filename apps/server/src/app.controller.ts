@@ -1,4 +1,11 @@
-import { Controller, Post, UseGuards, Request } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  UseGuards,
+  Request,
+  Get,
+  Redirect,
+} from '@nestjs/common';
 import { TokenAuthGuard } from './auth/token-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Public } from './auth/jwt-auth.guard';
@@ -6,6 +13,10 @@ import { Public } from './auth/jwt-auth.guard';
 @Controller()
 export class AppController {
   constructor(private authService: AuthService) {}
+
+  @Get('')
+  @Redirect('/beans', 302)
+  async index() {}
 
   @UseGuards(TokenAuthGuard)
   @Public()

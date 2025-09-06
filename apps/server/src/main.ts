@@ -22,8 +22,6 @@ async function bootstrap() {
     }),
   );
 
-  //app.setGlobalPrefix('api');
-
   const config = new DocumentBuilder()
     .setTitle('Coffee helper')
     .setDescription('The coffee helper API description')
