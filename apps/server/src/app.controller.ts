@@ -15,6 +15,7 @@ export class AppController {
   constructor(private authService: AuthService) {}
 
   @Get('')
+  @Public()
   @Redirect('/beans', 302)
   async index() {}
 
