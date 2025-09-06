@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import type { Bean } from '../../../generated/fetch-client';
 	import ExtractionDetails from './extraction-details.svelte';
 	import ExtractionsTable from './extractions-table.svelte';

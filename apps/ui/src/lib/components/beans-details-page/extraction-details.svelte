@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import Time from 'svelte-time/Time.svelte';
 	import type { Extraction } from '../../../generated/fetch-client';
 	import { Settings, Scale, Coffee, Watch, Droplets, MessageCircleQuestion } from '@lucide/svelte';

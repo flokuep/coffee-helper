@@ -6,7 +6,7 @@
 	} from '../../../generated/fetch-client';
 	import Button from '../generic/button.svelte';
 	import InputTextual from '../generic/input-textual.svelte';
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import { goto } from '$app/navigation';
 
 	interface Props {

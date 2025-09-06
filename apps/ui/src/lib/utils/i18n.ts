@@ -1,5 +1,5 @@
 import i18n from 'sveltekit-i18n';
-import lang from '../lang/lang.json';
+import lang from '../../lang/lang.json';
 import 'dayjs/locale/de'; // German locale
 import { dayjs } from 'svelte-time';
 
@@ -18,7 +18,7 @@ const config = {
 			return {
 				locale: lang,
 				key: key,
-				loader: async () => (await import(`../lang/${lang}/${key}.json`)).default
+				loader: async () => (await import(`../../lang/${lang}/${key}.json`)).default
 			};
 		})
 	)

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '../generic/button.svelte';
 	import InputTextual from '../generic/input-textual.svelte';
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import {
 		extractionControllerCreate,
 		extractionControllerUpdate,

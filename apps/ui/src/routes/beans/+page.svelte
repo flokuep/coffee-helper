@@ -3,7 +3,7 @@
 	import BeansList from '$lib/components/beans-page/beans-list.svelte';
 	import AppShellHeader from '$lib/components/generic/app-shell-header.svelte';
 	import AppShell from '$lib/components/generic/app-shell.svelte';
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import type { Bean } from '../../generated/fetch-client';
 	import type { PageData } from './$types';
 

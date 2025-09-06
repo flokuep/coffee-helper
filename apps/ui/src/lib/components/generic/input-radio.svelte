@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 
 	interface Props {
 		label: string;

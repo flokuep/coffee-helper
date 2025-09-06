@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from '$lib/i18n';
+	import { t } from '$lib/utils/i18n';
 	import type { Extraction } from '../../../generated/fetch-client';
 
 	interface Props {
