@@ -27,9 +27,9 @@
 	const otherBeans = $derived(data.beans.slice(4).filter(filter));
 </script>
 
-<AppShell>
+<AppShell pageTitle={$t('beans.beans')}>
 	{#snippet header()}
-		<AppShellHeader title="Bohnen" action={{ label: $t('generic.new'), href: '/beans/new' }}
+		<AppShellHeader title={$t('beans.beans')} action={{ label: $t('generic.new'), href: '/beans/new' }}
 		></AppShellHeader>
 	{/snippet}
 	<BeansFilter bind:value={filterValue} bind:decaf={filterDecaf} />

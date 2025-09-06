@@ -4,11 +4,18 @@
 	type Props = {
 		header?: Snippet;
 		children: Snippet;
+		pageTitle?: string;
 	};
 
-	const { header, children }: Props = $props();
+	const { header, children, pageTitle }: Props = $props();
 </script>
-
+<svelte:head>
+	{#if pageTitle}
+		<title>{pageTitle} | CoffeeHelper</title>
+	{:else}
+		<title>CoffeeHelper</title>
+	{/if}
+</svelte:head>
 <div class="flex flex-col overflow-hidden">
 	{#if header}
 		{@render header()}

@@ -33,7 +33,7 @@
 	}
 </script>
 
-<AppShell>
+<AppShell pageTitle={`${data.bean.name}, ${data.bean.manufacturer}`}>
 	{#snippet header()}
 		<AppShellHeader
 			title={`${data.bean.name}, ${data.bean.manufacturer}`}

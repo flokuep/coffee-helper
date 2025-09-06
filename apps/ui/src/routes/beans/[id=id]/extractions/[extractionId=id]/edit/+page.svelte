@@ -12,7 +12,7 @@
 	let { data }: Props = $props();
 </script>
 
-<AppShell>
+<AppShell pageTitle={$t('extractions.edit')}>
 	{#snippet header()}
 		<AppShellHeader title={$t('extractions.edit')}></AppShellHeader>
 	{/snippet}

@@ -7,7 +7,7 @@
 	let { data } = $props();
 </script>
 
-<AppShell>
+<AppShell pageTitle={$t('beans.edit')}>
 	{#snippet header()}
 		<AppShellHeader title={$t('beans.edit')}></AppShellHeader>
 	{/snippet}
