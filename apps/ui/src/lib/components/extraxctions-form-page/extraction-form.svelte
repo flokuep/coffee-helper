@@ -10,13 +10,15 @@
 	import InputNumeric from '../generic/input-numeric.svelte';
 	import InputRadio from '../generic/input-radio.svelte';
 	import { goto } from '$app/navigation';
+	import Hint from '../generic/hint.svelte';
 
 	interface Props {
 		beanId: number;
 		extraction?: Extraction;
+		lastExtraction?: Extraction;
 	}
 
-	let { extraction, beanId }: Props = $props();
+	let { extraction, beanId, lastExtraction }: Props = $props();
 
 	let grind = $state(extraction ? extraction.grind : undefined);
 	let coffeeIn = $state(extraction ? extraction.in : undefined);
@@ -59,11 +61,26 @@
 		}
 		goto(`/beans/${beanId}`);
 	}
+
+
+	function getPlaceholder(value: number | string | undefined): string | undefined {
+		if(!value) {
+			return undefined;
+		}
+
+		return `${$t('extractions.last')}: ${value}`;
+	}
 </script>
 
 <form onsubmit={onSave}>
-	<InputNumeric label={$t('extractions.grind')} bind:value={grind} step={0.5}></InputNumeric>
-	<InputNumeric label={$t('extractions.in')} bind:value={coffeeIn} step={0.1}></InputNumeric>
+	{#if lastExtraction && lastExtraction.nextExtractionHint}
+		<Hint>
+			{lastExtraction.nextExtractionHint}
+		</Hint>
+			<div class="col-span-2 my-4 border-b-1 border-yellow-600 md:col-start-2"></div>
+	{/if}
+	<InputNumeric label={$t('extractions.grind')} bind:value={grind} step={0.5} placeholder={getPlaceholder(lastExtraction?.grind)}></InputNumeric>
+	<InputNumeric label={$t('extractions.in')} bind:value={coffeeIn} step={0.1} placeholder={getPlaceholder(lastExtraction?.in)}></InputNumeric>
 	<InputNumeric label={$t('extractions.out')} bind:value={coffeeOut} step={0.1}></InputNumeric>
 	<InputNumeric label={$t('extractions.time')} bind:value={time} step={0.1}></InputNumeric>
 	<InputTextual label={$t('extractions.barista')} bind:value={barista}></InputTextual>

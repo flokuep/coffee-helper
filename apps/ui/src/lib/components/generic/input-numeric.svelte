@@ -5,9 +5,10 @@
 		step?: number | undefined;
 		min?: number | undefined;
 		max?: number | undefined;
+		placeholder?: string | undefined;
 	}
 
-	let { label, step, min, max, value = $bindable(undefined) }: Props = $props();
+	let { label, step, min, max, placeholder, value = $bindable(undefined) }: Props = $props();
 	let id = $derived(label.toLowerCase().replaceAll(' ', '-'));
 </script>
 
@@ -20,6 +21,7 @@
 		{step}
 		{min}
 		{max}
+		{placeholder}
 		bind:value
 	/>
 </div>

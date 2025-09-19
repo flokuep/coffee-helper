@@ -3,9 +3,10 @@
 		label: string;
 		value: string | undefined;
 		type?: string;
+		placeholder?: string | undefined;
 	}
 
-	let { label, type = 'text', value = $bindable(undefined) }: Props = $props();
+	let { label, type = 'text', value = $bindable(undefined), placeholder }: Props = $props();
 	let id = $derived(label.toLowerCase().replaceAll(' ', '-'));
 </script>
 
@@ -15,6 +16,7 @@
 		class="rounded-md border-1 border-gray-300 dark:border-stone-800  px-3 py-1.5 text-base focus:outline-1 focus:outline-yellow-600"
 		{id}
 		{type}
+		{placeholder}
 		bind:value
 	/>
 </div>

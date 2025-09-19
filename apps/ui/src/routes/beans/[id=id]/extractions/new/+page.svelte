@@ -29,5 +29,5 @@
 	{#snippet header()}
 		<AppShellHeader title={$t('extractions.add')}></AppShellHeader>
 	{/snippet}
-	<ExtractionForm beanId={data.beanId}></ExtractionForm>
+	<ExtractionForm beanId={data.beanId} lastExtraction={data.lastExtraction}></ExtractionForm>
 </AppShell>
