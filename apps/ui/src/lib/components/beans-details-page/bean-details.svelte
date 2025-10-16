@@ -24,4 +24,7 @@
 		<ExtractionDetails extraction={bean.extractions[0]} />
 		<ExtractionsTable extractions={bean.extractions.slice(1)} />
 	{/if}
+	<p class="text-center mt-5">
+		<a class="text-sm" href={`/beans/${bean.id}/edit`}>{$t("generic.edit")}</a>
+	</p>
 </div>

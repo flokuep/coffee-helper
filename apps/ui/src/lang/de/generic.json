@@ -1,10 +1,11 @@
 {
-	"filter": "Filter...",
-	"new": "Neu",
-	"save": "Speichern",
-	"saveForm": "Speichert das Formular",
-	"bool": {
-		"true": "Ja",
-		"false": "Nein"
-	}
+  "filter": "Filter...",
+  "new": "Neu",
+  "save": "Speichern",
+  "saveForm": "Speichert das Formular",
+  "bool": {
+    "true": "Ja",
+    "false": "Nein"
+  },
+  "edit": "Bearbeiten"
 }
