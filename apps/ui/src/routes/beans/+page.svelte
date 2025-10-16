@@ -16,12 +16,16 @@
 	let filterDecaf = $state(false);
 
 	function filter(bean: Bean) {
-		return (
-			bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
-			bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
-			bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
-		);
-	}
+        const textMatch = (
+            bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+            bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
+            bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
+        );
+        
+        const decafMatch = !filterDecaf || (filterDecaf && bean.decaf);
+
+        return textMatch && decafMatch;
+    }
 
 	const currentBeans = $derived(data.beans.slice(0, 4).filter(filter));
 	const otherBeans = $derived(data.beans.slice(4).filter(filter));
