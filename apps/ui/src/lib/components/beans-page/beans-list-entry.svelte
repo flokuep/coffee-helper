@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Coffee, Scale, Settings, ShieldAlert, Watch } from '@lucide/svelte';
+	import { BeanOff, Coffee, Scale, Settings, ShieldAlert, Watch } from '@lucide/svelte';
 	import type { Bean } from '../../../generated/fetch-client';
 
 	interface Props {
@@ -15,7 +15,12 @@
 
 <li class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5 dark:bg-stone-900 dark:border-stone-700">
 	<a href="/beans/{bean.id}">
-		<div>{bean.name}, {bean.manufacturer}</div>
+		<div class="flex flex-row items-center">
+			{bean.name}, {bean.manufacturer}
+			{#if bean.decaf === true}
+			<BeanOff size={15} strokeWidth={1} class="ms-2" />
+			{/if}
+		</div>
 		{#if extraction}
 			<div class="flex flex-row items-center">
 				{#if extraction.flow !== 'perfect' || extraction.profile !== 'perfect'}
