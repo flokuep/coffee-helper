@@ -41,7 +41,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"dayjs": "^1.11.13",
 		"oazapfts": "^6.2.2",
-		"svelte-time": "^2.0.1",
+		"svelte-time": "^2.0.2",
 		"sveltekit-i18n": "^2.4.2"
 	}
 }
