@@ -153,8 +153,8 @@ importers:
   apps/ui:
     dependencies:
       '@lucide/svelte':
-        specifier: ^0.553.0
-        version: 0.553.0(svelte@5.46.0)
+        specifier: ^0.562.0
+        version: 0.562.0(svelte@5.46.0)
       '@oazapfts/runtime':
         specifier: ^1.1.0
         version: 1.1.0
@@ -1140,8 +1140,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@lucide/svelte@0.553.0':
-    resolution: {integrity: sha512-uudJd5NF1zrsO0C2dmCo5lzctqGWNxQKUxM+HErUKyG2oCI2rSGllcsSjn6JfLaHUVy+sPESKa5Dsctm4mZHOQ==}
+  '@lucide/svelte@0.562.0':
+    resolution: {integrity: sha512-wDMULwtTFN2Sc/TFBm6gfuVCNb4Y5P9LDrwxNnUbV52+IEU7NXZmvxwXoz+vrrpad6Xupq+Hw5eUlqIHEGhouw==}
     peerDependencies:
       svelte: ^5
 
@@ -5600,7 +5600,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/svelte@0.553.0(svelte@5.46.0)':
+  '@lucide/svelte@0.562.0(svelte@5.46.0)':
     dependencies:
       svelte: 5.46.0
 
