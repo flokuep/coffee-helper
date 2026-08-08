@@ -10,3 +10,5 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - '@nestjs/core'
   - esbuild
+
+minimumReleaseAge: 0
