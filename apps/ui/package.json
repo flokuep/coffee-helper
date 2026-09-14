@@ -38,7 +38,7 @@
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/postcss": "^4.1.18",
-		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/typography": "^0.5.20",
 		"dayjs": "^1.11.19",
 		"oazapfts": "^6.2.2",
 		"svelte-time": "^2.1.0",
