@@ -1,4 +1,4 @@
-import { defineConfig } from 'drizzle-kit';
+import { Config, defineConfig } from 'drizzle-kit';
 import { ConfigService } from '@nestjs/config';
 import 'dotenv/config';
 
@@ -17,4 +17,4 @@ export default defineConfig({
     ssl: configService.get('POSTGRES_SSL') === 'true',
   },
   casing: 'snake_case',
-});
+}) satisfies Config;

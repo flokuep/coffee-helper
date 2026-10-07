@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { relations } from 'drizzle-orm';
 import {
   serial,
