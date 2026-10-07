@@ -16,32 +16,33 @@
 	let filterDecaf = $state(false);
 
 	function filter(bean: Bean) {
-        const textMatch = (
-            bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
-            bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
-            bean.profile?.toLowerCase().includes(filterValue.toLowerCase())
-        );
-        
-        const decafMatch = !filterDecaf || (filterDecaf && bean.decaf);
+		const textMatch =
+			bean.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+			bean.manufacturer.toLowerCase().includes(filterValue.toLowerCase()) ||
+			bean.profile?.toLowerCase().includes(filterValue.toLowerCase());
 
-        return textMatch && decafMatch;
-    }
+		const decafMatch = !filterDecaf || (filterDecaf && bean.decaf);
+
+		return textMatch && decafMatch;
+	}
 
 	const currentBeans = $derived(data.beans.slice(0, 4).filter(filter));
 	const otherBeans = $derived(data.beans.slice(4).filter(filter));
 </script>
 
-<AppShell pageTitle={$t('beans.beans')}>
+<AppShell pageTitle={t('beans.beans')}>
 	{#snippet header()}
-		<AppShellHeader title={$t('beans.beans')} action={{ label: $t('generic.new'), href: '/beans/new' }}
+		<AppShellHeader
+			title={t('beans.beans')}
+			action={{ label: t('generic.new'), href: '/beans/new' }}
 		></AppShellHeader>
 	{/snippet}
 	<BeansFilter bind:value={filterValue} bind:decaf={filterDecaf} />
-	<h1 class="mt-7 border-b-1 border-yellow-600">{$t('beans.currentBeans')}</h1>
+	<h1 class="mt-7 border-b-1 border-yellow-600">{t('beans.currentBeans')}</h1>
 	<BeansList beans={currentBeans} />
 	{#if data.beans.length > 5}
 		<h1 class="mt-10 border-b-1 border-yellow-600">
-			{$t('beans.moreBeans')}
+			{t('beans.moreBeans')}
 		</h1>
 		<BeansList beans={otherBeans} />
 	{/if}

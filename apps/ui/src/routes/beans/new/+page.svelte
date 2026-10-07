@@ -12,9 +12,9 @@
 	let { data }: Props = $props();
 </script>
 
-<AppShell pageTitle={$t('beans.create')}>
+<AppShell pageTitle={t('beans.create')}>
 	{#snippet header()}
-		<AppShellHeader title={$t('beans.create')}></AppShellHeader>
+		<AppShellHeader title={t('beans.create')}></AppShellHeader>
 	{/snippet}
 	<BeanForm></BeanForm>
 </AppShell>

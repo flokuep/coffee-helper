@@ -16,7 +16,7 @@
 		id="filter"
 		type="text"
 		bind:value
-		placeholder={$t('generic.filter')}
+		placeholder={t('generic.filter')}
 	/>
-	<Chip bind:active={decaf} label={$t('beans.decaf')}></Chip>
+	<Chip bind:active={decaf} label={t('beans.decaf')}></Chip>
 </div>

@@ -13,18 +13,18 @@
 
 <div>
 	{#if bean.profile}
-		<p>{$t('beans.profile')}: {bean.profile}</p>
+		<p>{t('beans.profile')}: {bean.profile}</p>
 	{/if}
 	{#if bean.notes}
-		<p>{$t('beans.notes')}:{bean.notes}</p>
+		<p>{t('beans.notes')}:{bean.notes}</p>
 	{/if}
 	{#if bean.extractions.length == 0}
-		<p>{$t('extractions.none')}</p>
+		<p>{t('extractions.none')}</p>
 	{:else}
 		<ExtractionDetails extraction={bean.extractions[0]} />
 		<ExtractionsTable extractions={bean.extractions.slice(1)} />
 	{/if}
-	<p class="text-center mt-5">
-		<a class="text-sm" href={`/beans/${bean.id}/edit`}>{$t("generic.edit")}</a>
+	<p class="mt-5 text-center">
+		<a class="text-sm" href={`/beans/${bean.id}/edit`}>{t('generic.edit')}</a>
 	</p>
 </div>

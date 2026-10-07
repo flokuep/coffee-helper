@@ -13,7 +13,7 @@
 </script>
 
 <h1 class="mt-5 mb-1 border-b-1 border-yellow-600">
-	{$t('extractions.last')}
+	{t('extractions.last')}
 	<Time relative timestamp={extraction.createdAt}></Time>
 </h1>
 <div class="grid grid-cols-2 pt-2 md:grid-cols-[1fr_auto_auto_1fr]">
@@ -47,14 +47,14 @@
 
 	<div class="my-2 flex items-center justify-center p-1 md:col-start-2 md:p-5">
 		<Droplets size={64} strokeWidth={1} class="me-1" />
-		<span class="text-2xl">{$t(`extractions.flowValues.${extraction.flow}`)}</span>
+		<span class="text-2xl">{t(`extractions.flowValues.${extraction.flow}`)}</span>
 	</div>
 
 	<div
 		class="my-2 flex items-center justify-center p-1 md:col-start-3 md:border-l-1 md:border-yellow-600 md:p-5"
 	>
 		<MessageCircleQuestion size={64} strokeWidth={1} class="me-1" />
-		<span class="text-2xl">{$t(`extractions.profileValues.${extraction.profile}`)}</span>
+		<span class="text-2xl">{t(`extractions.profileValues.${extraction.profile}`)}</span>
 	</div>
 
 	{#if extraction.nextExtractionHint}

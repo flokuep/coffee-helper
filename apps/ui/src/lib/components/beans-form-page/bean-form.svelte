@@ -22,7 +22,6 @@
 	let notes = $state(bean && bean.notes ? bean.notes : '');
 	let decaf = $state(bean && bean.decaf ? 'true' : 'false');
 
-
 	async function onSave() {
 		if (bean) {
 			await beanControllerUpdate({
@@ -31,7 +30,7 @@
 			});
 		} else {
 			await beanControllerCreate({
-				createBeanDto: { name, manufacturer, profile, notes, decaf: decaf === 'true'}
+				createBeanDto: { name, manufacturer, profile, notes, decaf: decaf === 'true' }
 			});
 		}
 		goto('/beans');
@@ -39,10 +38,15 @@
 </script>
 
 <form onsubmit={onSave}>
-	<InputTextual label={$t('beans.bean')} bind:value={name}></InputTextual>
-	<InputTextual label={$t('beans.manufacturer')} bind:value={manufacturer}></InputTextual>
-	<InputTextual label={$t('beans.profile')} bind:value={profile}></InputTextual>
-	<InputRadio translationPrefix="generic.bool" options={['true', 'false']} label={$t('beans.decaf')} bind:value={decaf}></InputRadio>
-	<InputTextual label={$t('beans.notes')} bind:value={notes}></InputTextual>
-	<Button type="submit" description={$t('generic.saveForm')} label={$t('generic.save')}></Button>
+	<InputTextual label={t('beans.bean')} bind:value={name}></InputTextual>
+	<InputTextual label={t('beans.manufacturer')} bind:value={manufacturer}></InputTextual>
+	<InputTextual label={t('beans.profile')} bind:value={profile}></InputTextual>
+	<InputRadio
+		translationPrefix="generic.bool"
+		options={['true', 'false']}
+		label={t('beans.decaf')}
+		bind:value={decaf}
+	></InputRadio>
+	<InputTextual label={t('beans.notes')} bind:value={notes}></InputTextual>
+	<Button type="submit" description={t('generic.saveForm')} label={t('generic.save')}></Button>
 </form>
