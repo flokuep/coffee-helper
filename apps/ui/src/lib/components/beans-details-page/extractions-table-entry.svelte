@@ -14,6 +14,6 @@
 	<td>{extraction.in}g</td>
 	<td>{extraction.time}s</td>
 	<td>{extraction.out}g</td>
-	<td>{$t(`extractions.flowValues.${extraction.flow}`)}</td>
-	<td>{$t(`extractions.profileValues.${extraction.profile}`)}</td>
+	<td>{t(`extractions.flowValues.${extraction.flow}`)}</td>
+	<td>{t(`extractions.profileValues.${extraction.profile}`)}</td>
 </tr>

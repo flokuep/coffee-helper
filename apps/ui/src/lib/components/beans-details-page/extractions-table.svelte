@@ -12,7 +12,7 @@
 </script>
 
 {#if extractions.length > 0}
-	<h1 class="mt-5 mb-2 border-b-1 border-yellow-600">{$t('extractions.previous')}</h1>
+	<h1 class="mt-5 mb-2 border-b-1 border-yellow-600">{t('extractions.previous')}</h1>
 	<table class="mx-2 w-full table-fixed border-separate border-spacing-y-2 text-sm">
 		<thead>
 			<tr>

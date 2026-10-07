@@ -25,9 +25,9 @@
 	});
 </script>
 
-<AppShell pageTitle={$t('extractions.add')}>
+<AppShell pageTitle={t('extractions.add')}>
 	{#snippet header()}
-		<AppShellHeader title={$t('extractions.add')}></AppShellHeader>
+		<AppShellHeader title={t('extractions.add')}></AppShellHeader>
 	{/snippet}
 	<ExtractionForm beanId={data.beanId} lastExtraction={data.lastExtraction}></ExtractionForm>
 </AppShell>

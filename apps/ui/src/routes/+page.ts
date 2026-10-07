@@ -38,8 +38,8 @@ export const load = (async ({ fetch }) => {
 
 	return {
 		meta: {
-			title: 'Hallo', // $t('welcome') + ' 🎉',
-			description: 'Beschreibung' //$t('immich_web_interface')
+			title: 'Hallo', // t('welcome') + ' 🎉',
+			description: 'Beschreibung' //t('immich_web_interface')
 		}
 	};
 }) satisfies PageLoad;

@@ -6,24 +6,22 @@ import { dayjs } from 'svelte-time';
 // Set the default locale to German.
 dayjs.locale('de');
 
-const langKeys = ['generic', 'beans', 'extractions'];
+const langNamespaces = ['generic', 'beans', 'extractions'];
 const languages = Object.keys(lang);
 
 const config = {
 	translations: {
 		de: { lang }
 	},
-	loaders: langKeys.flatMap((key) =>
+	loaders: langNamespaces.flatMap((namespace) =>
 		languages.map((lang) => {
 			return {
 				locale: lang,
-				key: key,
-				loader: async () => (await import(`../../lang/${lang}/${key}.json`)).default
+				namespace,
+				loader: async () => (await import(`../../lang/${lang}/${namespace}.json`)).default
 			};
 		})
 	)
 };
 
 export const { t, locale, locales, loading, loadTranslations } = new i18n(config);
-
-loading.subscribe(($loading) => $loading && console.log('Loading translations...'));

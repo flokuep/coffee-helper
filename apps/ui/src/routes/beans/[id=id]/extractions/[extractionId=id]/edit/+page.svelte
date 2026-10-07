@@ -12,9 +12,9 @@
 	let { data }: Props = $props();
 </script>
 
-<AppShell pageTitle={$t('extractions.edit')}>
+<AppShell pageTitle={t('extractions.edit')}>
 	{#snippet header()}
-		<AppShellHeader title={$t('extractions.edit')}></AppShellHeader>
+		<AppShellHeader title={t('extractions.edit')}></AppShellHeader>
 	{/snippet}
 	<ExtractionForm beanId={data.beanId} extraction={data.extraction}></ExtractionForm>
 </AppShell>
