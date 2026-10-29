@@ -13,12 +13,14 @@
 	);
 </script>
 
-<li class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5 dark:bg-stone-900 dark:border-stone-700">
+<li
+	class="my-2 rounded-xl border-1 border-stone-300 bg-stone-50 p-5 dark:border-stone-700 dark:bg-stone-900"
+>
 	<a href="/beans/{bean.id}">
 		<div class="flex flex-row items-center">
 			{bean.name}, {bean.manufacturer}
 			{#if bean.decaf === true}
-			<BeanOff size={15} strokeWidth={1} class="ms-2" />
+				<BeanOff size={15} strokeWidth={1} class="ms-2" />
 			{/if}
 		</div>
 		{#if extraction}

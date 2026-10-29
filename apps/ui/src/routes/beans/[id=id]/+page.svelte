@@ -10,12 +10,16 @@
 	let screenLock: WakeLockSentinel | null | undefined = undefined;
 
 	// Set screen lock on entering the page
-	afterNavigate(async ({}) => {
+	afterNavigate(async ({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		screenLock = await setScreenLock();
 	});
 
 	// Remove screen lock when leaving the page
-	beforeNavigate(async () => {
+	beforeNavigate(async ({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		screenLock = releaseScreenLock(screenLock);
 	});
 </script>
@@ -24,8 +28,11 @@
 	{#snippet header()}
 		<AppShellHeader
 			title={`${data.bean.name}, ${data.bean.manufacturer}`}
-			action={{ label: t('beans.brew'), href: `/beans/${data.bean.id}/extractions/new` }}
-		></AppShellHeader>
+			action={{
+				label: t('beans.brew'),
+				href: `/beans/${data.bean.id}/extractions/new`
+			}}
+		/>
 	{/snippet}
 	<BeanDetails bean={data.bean} />
 </AppShell>

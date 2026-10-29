@@ -16,11 +16,11 @@
 
 	let { bean }: Props = $props();
 
-	let name = $state(bean ? bean.name : '');
-	let manufacturer = $state(bean ? bean.manufacturer : '');
-	let profile = $state(bean && bean.profile ? bean.profile : '');
-	let notes = $state(bean && bean.notes ? bean.notes : '');
-	let decaf = $state(bean && bean.decaf ? 'true' : 'false');
+	let name = $derived(bean ? bean.name : '');
+	let manufacturer = $derived(bean ? bean.manufacturer : '');
+	let profile = $derived(bean && bean.profile ? bean.profile : '');
+	let notes = $derived(bean && bean.notes ? bean.notes : '');
+	let decaf = $derived(bean && bean.decaf ? 'true' : 'false');
 
 	async function onSave() {
 		if (bean) {

@@ -9,6 +9,7 @@
 
 	const { header, children, pageTitle }: Props = $props();
 </script>
+
 <svelte:head>
 	{#if pageTitle}
 		<title>{pageTitle} | CoffeeHelper</title>

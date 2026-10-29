@@ -20,14 +20,14 @@
 
 	let { extraction, beanId, lastExtraction }: Props = $props();
 
-	let grind = $state(extraction ? extraction.grind : undefined);
-	let coffeeIn = $state(extraction ? extraction.in : undefined);
-	let coffeeOut = $state(extraction ? extraction.out : undefined);
-	let time = $state(extraction ? extraction.time : undefined);
-	let barista = $state(extraction ? extraction.barista : undefined);
-	let flow = $state(extraction ? extraction.flow : undefined);
-	let profile = $state(extraction ? extraction.profile : undefined);
-	let nextExtractionHint = $state(extraction ? extraction.nextExtractionHint : undefined);
+	let grind = $derived(extraction ? extraction.grind : undefined);
+	let coffeeIn = $derived(extraction ? extraction.in : undefined);
+	let coffeeOut = $derived(extraction ? extraction.out : undefined);
+	let time = $derived(extraction ? extraction.time : undefined);
+	let barista = $derived(extraction ? extraction.barista : undefined);
+	let flow = $derived(extraction ? extraction.flow : undefined);
+	let profile = $derived(extraction ? extraction.profile : undefined);
+	let nextExtractionHint = $derived(extraction ? extraction.nextExtractionHint : undefined);
 
 	async function onSave() {
 		if (extraction) {

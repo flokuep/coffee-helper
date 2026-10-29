@@ -1,13 +1,13 @@
 {
-  "bean": "Bohne",
-  "beans": "Bohnen",
-  "manufacturer": "Rösterei",
-  "profile": "Profil",
-  "notes": "Notizen",
-  "decaf": "Decaf",
-  "create": "Neue Bohne anlegen",
-  "brew": "Brühen",
-  "edit": "Bohne bearbeiten",
-  "currentBeans": "Deine aktuellen Bohnen",
-  "moreBeans": "Weitere Bohnen"
+	"bean": "Bohne",
+	"beans": "Bohnen",
+	"manufacturer": "Rösterei",
+	"profile": "Profil",
+	"notes": "Notizen",
+	"decaf": "Decaf",
+	"create": "Neue Bohne anlegen",
+	"brew": "Brühen",
+	"edit": "Bohne bearbeiten",
+	"currentBeans": "Deine aktuellen Bohnen",
+	"moreBeans": "Weitere Bohnen"
 }

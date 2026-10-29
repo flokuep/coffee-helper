@@ -15,19 +15,24 @@
 	let screenLock: WakeLockSentinel | null | undefined = undefined;
 
 	// Set screen lock on entering the page
-	afterNavigate(async ({}) => {
+	afterNavigate(async ({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		screenLock = await setScreenLock();
 	});
 
 	// Remove screen lock when leaving the page
-	beforeNavigate(async () => {
+	beforeNavigate(async ({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		screenLock = releaseScreenLock(screenLock);
 	});
 </script>
 
 <AppShell pageTitle={t('extractions.add')}>
 	{#snippet header()}
-		<AppShellHeader title={t('extractions.add')}></AppShellHeader>
+		<AppShellHeader title={t('extractions.add')} />
 	{/snippet}
-	<ExtractionForm beanId={data.beanId} lastExtraction={data.lastExtraction}></ExtractionForm>
+
+	<ExtractionForm beanId={data.beanId} lastExtraction={data.lastExtraction} />
 </AppShell>

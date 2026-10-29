@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import adapter from '@sveltejs/adapter-static';
+import tailwindcss from '@tailwindcss/vite';
 
 const upstream = {
 	target: process.env.SERVER_URL ?? 'http://localhost:3000/',
@@ -12,8 +13,9 @@ const upstream = {
 
 export default defineConfig({
 	plugins: [
+		tailwindcss(),
 		sveltekit({
-			compilerOptions: { experimental: { async: true }},
+			compilerOptions: { experimental: { async: true } },
 			adapter: adapter({
 				fallback: 'index.html',
 				precompress: true
