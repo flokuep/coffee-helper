@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ExtractionForm from '$lib/components/extraxctions-form-page/extraction-form.svelte';
-	import AppShellHeader from '$lib/components/generic/app-shell-header.svelte';
-	import AppShell from '$lib/components/generic/app-shell.svelte';
-	import { t } from '$lib/utils/i18n';
+	import ExtractionForm from '#lib/components/extraxctions-form-page/extraction-form.svelte';
+	import AppShellHeader from '#lib/components/generic/app-shell-header.svelte';
+	import AppShell from '#lib/components/generic/app-shell.svelte';
+	import { t } from '#lib/utils/i18n';
 	import type { PageData } from './$types';
 
 	interface Props {

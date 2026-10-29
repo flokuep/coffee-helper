@@ -1,5 +1,5 @@
-import { init } from '$lib/utils/server';
-import { loadTranslations } from '$lib/utils/i18n';
+import { init } from '#lib/utils/server';
+import { loadTranslations } from '#lib/utils/i18n';
 
 export const ssr = false;
 export const csr = true;

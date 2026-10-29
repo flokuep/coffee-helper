@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import BeanDetails from '$lib/components/beans-details-page/bean-details.svelte';
-	import AppShellHeader from '$lib/components/generic/app-shell-header.svelte';
-	import AppShell from '$lib/components/generic/app-shell.svelte';
-	import { t } from '$lib/utils/i18n.js';
-	import { releaseScreenLock, setScreenLock } from '$lib/utils/screen-lock.js';
+	import BeanDetails from '#lib/components/beans-details-page/bean-details.svelte';
+	import AppShellHeader from '#lib/components/generic/app-shell-header.svelte';
+	import AppShell from '#lib/components/generic/app-shell.svelte';
+	import { t } from '#lib/utils/i18n.js';
+	import { releaseScreenLock, setScreenLock } from '#lib/utils/screen-lock.js';
 
 	let { data } = $props();
 	let screenLock: WakeLockSentinel | null | undefined = undefined;

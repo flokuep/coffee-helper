@@ -1,7 +1,7 @@
-//import { AppRoute } from '$lib/constants';
-//import { serverConfig } from '$lib/stores/server-config.store';
-//import { getFormatter } from '$lib/utils/i18n';
-import { init } from '$lib/utils/server';
+//import { AppRoute } from '#lib/constants';
+//import { serverConfig } from '#lib/stores/server-config.store';
+//import { getFormatter } from '#lib/utils/i18n';
+import { init } from '#lib/utils/server';
 import { redirect } from '@sveltejs/kit';
 
 //import { loadUser } from '../lib/utils/auth';

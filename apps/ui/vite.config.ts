@@ -1,5 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import adapter from '@sveltejs/adapter-static';
 
 const upstream = {
 	target: process.env.SERVER_URL ?? 'http://localhost:3000/',
@@ -10,7 +11,15 @@ const upstream = {
 };
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [
+		sveltekit({
+			compilerOptions: { experimental: { async: true }},
+			adapter: adapter({
+				fallback: 'index.html',
+				precompress: true
+			})
+		})
+	],
 	server: {
 		// connect to a remote backend during web-only development
 		proxy: {
