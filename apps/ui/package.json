@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.1.1",
 		"@sveltejs/adapter-auto": "^8.0.0",
-		"@sveltejs/adapter-static": "^4.0.0",
+		"@sveltejs/adapter-static": "^4.0.1",
 		"@sveltejs/kit": "^3.1.1",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"autoprefixer": "^10.6.2",
@@ -36,7 +36,7 @@
 	"dependencies": {
 		"@lucide/svelte": "^1.64.0",
 		"@oazapfts/runtime": "^1.2.0",
-		"@sveltejs/adapter-static": "^4.0.0",
+		"@sveltejs/adapter-static": "^4.0.1",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/postcss": "^4.3.3",
 		"@tailwindcss/typography": "^0.5.20",
